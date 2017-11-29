@@ -1,0 +1,699 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  一只鱼的理想
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="一只鱼的理想" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 一只鱼的理想</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="fe.html">FELike</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="15114998607619.html">
+                
+                  <h1>我想跟你谈谈 Gitflow</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>俗话说，没有规矩不成方圆。每当有新人报道时，人事都会带领他们去进行一场隆重的‘洗礼’：宣讲公司文化，组织架构等等。经过这样的安排，就顺利成章的变为了公司的‘乖乖羊’。</p>
+</blockquote>
+
+<p>IT 界发展有十几年了，从一开始的各自为战，转变为团队作战。能做到这件事情的最微妙的关键就是，墨守成规。</p>
+
+<p>最近在看一本书，未来简史。里面有一段描述人跟动物的差别：人可以很自然的融入不同的环境中去适应生活并参与劳动，但动物不行。</p>
+
+<p>现在，我想向大家隆重推荐，gitflow。</p>
+
+<ul>
+<li>
+<a href="#toc_0">分支策略</a>
+<ul>
+<li>
+<a href="#toc_1">常用分支</a>
+</li>
+<li>
+<a href="#toc_2">临时分支</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_3">Pull / Merge Request</a>
+</li>
+<li>
+<a href="#toc_4">Code Review</a>
+</li>
+<li>
+<a href="#toc_5">Git Command</a>
+</li>
+<li>
+<a href="#toc_6">Commit</a>
+<ul>
+<li>
+<a href="#toc_7">使用了哪些开源项目及作用</a>
+</li>
+<li>
+<a href="#toc_8">操作流程</a>
+</li>
+<li>
+<a href="#toc_9">Git commit 日志基本规范</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_10">参考</a>
+</li>
+</ul>
+
+
+<p><img src="media/15114998607619/git-model@2x.png" alt="git-model@2x"/></p>
+
+<h2 id="toc_0">分支策略</h2>
+
+<ul>
+<li><strong>代码库的常设分支始终只有 master 和 develop，临时分支最后都删除。</strong></li>
+<li><strong>临时分支合并到常用分支时，必须发起 Pull / Merge Requset ，并指定一个人 code review。</strong></li>
+<li><strong>远程临时分支由发起者追踪和维护， reviewer 负责删除。</strong></li>
+<li>所有的开发和迭代尽量都在临时分支上。</li>
+<li>开发记录、功能集成、测试历史由 develop 分支管理，正式发布记录由 master 分支管理。</li>
+<li>发布和部署时，必须新建发布分支。<code>（发布分支基于 develop 分支）</code></li>
+<li>发布和部署完成后，必须将发布分支合并回 develop / master 分支，然后删除发布分支。</li>
+<li>合并到 master 分支的代码必须打上 Tag。<code>（Tag：版本号、描述、日期）</code></li>
+</ul>
+
+<h3 id="toc_1">常用分支</h3>
+
+<p><strong>master: 正式发布</strong></p>
+
+<p>master 分支上存放的应该是随时可供在生产环境中部署的代码（Production Ready state）。当开发活动告一段落，产生了一份新的可供部署的代码时，master 分支上的代码会被更新。同时，每一次更新，需要添加对应的版本号标签（TAG）。</p>
+
+<p><strong>develop: 日常开发</strong></p>
+
+<p>develop 分支是保存当前最新开发成果的分支。通常这个分支上的代码也是可进行每日夜间发布的代码（Nightly build）。因此这个分支有时也可以被称作“integration branch”。</p>
+
+<h3 id="toc_2">临时分支</h3>
+
+<p><strong>功能分支</strong></p>
+
+<p>功能分支，开发新功能都从 develop 分支出来，从 develop 分支上面分出来的。开发完成后，要再并入 develop。</p>
+
+<p><strong>发布分支</strong></p>
+
+<p>发布分支，准备要 release 的版本，只修 bugs。从 develop 分支上面分出来，发布结束以后，必须合并进 develop 和 master 分支。</p>
+
+<p><strong>修补分支</strong></p>
+
+<p>修补分支，是指等不及 release 版本就必须马上修 master 赶上线的情况。它是从 master 分支上面分出来的。修补结束以后， 再合并进 master 和 develop 分支。</p>
+
+<h2 id="toc_3">Pull / Merge Request</h2>
+
+<p>代码合并到 master / develop 分支：</p>
+
+<ol>
+<li>将需要合并到 master / develop 的分支 push 到 gitlab。</li>
+<li>进入工程 -&gt; merge request -&gt; create new merge request</li>
+<li>选择源分支、目标分支，确定。</li>
+<li>review 负责人进入 merge request，确认没有问题之后选择 Auto Merge（或者手动在本地合并之后再 push 到 gitlab），并关闭这个 merge request，完成。</li>
+<li>如果发现问题那么在有问题的行下注释，并提醒 request 的发起人及时修改。</li>
+<li>删除本地临时分支，本地 master / develop 更新到最新状态。</li>
+</ol>
+
+<h2 id="toc_4">Code Review</h2>
+
+<ul>
+<li>提交 Pull / Merge Request 时， Commit 和 Message 要足够清晰详细。
+切记，如果一次提交的内容包含很多 Commit，请不要使用自动生成的描述。
+请用简短且足够说明问题的语言（理想是控制在3句话之内）来描述：</li>
+</ul>
+
+<blockquote>
+<p>你改动了什么，解决了什么问题，需要代码审查的人留意那些影响比较大的改动。特别需要留意，如果对基础、公共的组件进行了改动，一定要另起一行特别说明。</p>
+</blockquote>
+
+<ul>
+<li>审核人员邀请原则：项目参与人员 &amp; 团队同事 &amp; 团队 Leader。<strong>（对项目足够了解，对项目足够了解，对项目足够了解，重要的事情说三遍）</strong>；</li>
+<li>评论中至少出现一个 lgtm 且保证代码评审通过之后 Pull / Merge Request 才可以被合并；<code>（注：lgtm 即 looks good to me 的缩写）</code></li>
+</ul>
+
+<blockquote>
+<p>lgtm 需要配置插件实现功能。</p>
+</blockquote>
+
+<h2 id="toc_5">Git Command</h2>
+
+<p><strong>git checkout</strong></p>
+
+<pre><code># 放弃在 file.txt 的修改，恢复成未修改时的样子
+git checkout file.txt
+# 当前目录所有修改的文件，恢复成未修改时的样子
+git checkout .
+# 创建新的分支，并切换过去
+git checkout -b branchname
+</code></pre>
+
+<p><strong>git tag</strong></p>
+
+<pre><code># 创建一个带版本有描述的 tag
+git tag -a v0.1.0 -m &#39;commit&#39;
+# 覆盖该版本已有 v0.1.0
+git tag -f v0.1.0
+# 推送服务器
+git push origin --tags
+# 服务器已有 v0.1.0，强制推到服务器
+git push origin -f v0.1.0
+# 服务器获取刚刚的 v0.1.0
+git fetch --tag
+# 删除本地版本
+git tag -d v0.1.0
+# 删除服务器上的tag
+git push origin :v0.1.0
+</code></pre>
+
+<p><strong>git merge</strong></p>
+
+<pre><code># 不使用 fast-forward 方式合并，保留分支的 commit 历史
+git merge --no-ff develop
+# 使用 squash 方式合并，把多次分支commit历史压缩为一次
+git merge --squash develop
+</code></pre>
+
+<p><strong>git reset</strong></p>
+
+<pre><code># 回退指定的 commit
+git reset 0c5602affd27d2224d151284bd1c6e033fd9023f
+# 回退上次修改
+git reset --hard
+</code></pre>
+
+<p><strong>git flow</strong></p>
+
+<pre><code># git flow 初始化
+git flow init
+# 创建一个新的 feature 分支
+git flow feature start name
+# 将 feature 分支推送到远程仓库
+git flow feature publish name
+# 当特性开发完毕，需要将此分支合并到 develop 分支
+git flow feature finish name
+</code></pre>
+
+<h2 id="toc_6">Commit</h2>
+
+<h3 id="toc_7">使用了哪些开源项目及作用</h3>
+
+<ul>
+<li>Commitizen
+&gt; 一个撰写合格 Commit message 的工具。</li>
+<li>validate-commit-msg
+&gt; 用于检查 Node 项目的 Commit message 是否符合格式。</li>
+<li>standard-version
+&gt; 用于依据 Commit message 生成 changelog 以及版本发布。</li>
+</ul>
+
+<h3 id="toc_8">操作流程</h3>
+
+<p>1.拉取最新代码。<br/>
+2.在<strong>本地分支</strong>开发，开发完成之后将该分支 push 到远程仓库。<br/>
+3.远程仓库上审核代码。通过之后，将分支合并到仓库主干，并清理分支。</p>
+
+<blockquote>
+<p>note: commit 内容也作为审核的一部分, 要求精准，简练，完整。对于改动较大，功能复杂的代码修改，尽量使用中文。</p>
+</blockquote>
+
+<h3 id="toc_9">Git commit 日志基本规范</h3>
+
+<p>标准参考 <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md">Contributing to AngularJS</a></p>
+
+<pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+&lt;BLANK LINE&gt;
+&lt;body&gt;
+&lt;BLANK LINE&gt;
+&lt;footer&gt;
+</code></pre>
+
+<p><strong>type 代表某次提交的类型，比如是修复一个 bug 还是增加一个新的 feature。所有的 type 类型如下：</strong></p>
+
+<ul>
+<li>feat： 新增feature</li>
+<li>fix: 修复bug</li>
+<li>docs: 仅仅修改了文档，比如README, CHANGELOG, CONTRIBUTE等等</li>
+<li>style: 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑</li>
+<li>refactor: 代码重构，没有加新功能或者修复bug</li>
+<li>perf: 优化相关，比如提升性能、体验</li>
+<li>test: 测试用例，包括单元测试、集成测试等</li>
+<li>chore: 改变构建流程、或者增加依赖库、工具等</li>
+<li>revert: 回滚到上一个版本</li>
+</ul>
+
+<p><strong>scope 表示改动部分的受影响范围:</strong></p>
+
+<ul>
+<li>user 用户</li>
+<li>pay 支付</li>
+<li>product 产品</li>
+<li>article 文章</li>
+<li>core 核心</li>
+<li>router 路由</li>
+<li>api 接口</li>
+<li>doc 文档</li>
+<li>upgrade 升级计划</li>
+</ul>
+
+<blockquote>
+<p>note: 如果无法确认影响范围，填写修改的文件。e.g. examples.js</p>
+</blockquote>
+
+<p><strong>subject 主题，包含对变更的简明描述：</strong></p>
+
+<ul>
+<li>以动词开头，使用第一人称现在时：&quot;change&quot;（改变 动作） 不是 &quot;changed&quot;（改变 过去式） 也不是 &quot;changes&quot;（改变 三单形式）</li>
+<li>不要大写第一个字母</li>
+<li>最后没有点（。）</li>
+</ul>
+
+<p><strong>常用表述语：</strong></p>
+
+<ul>
+<li>add 添加</li>
+<li>change 改变</li>
+<li>modify 修改</li>
+<li>update 更新</li>
+<li>remove 移动</li>
+<li>delete 删除</li>
+</ul>
+
+<p><strong>body 主体</strong></p>
+
+<ul>
+<li>使用第一人称现在时，比如使用：&quot;change&quot;（改变 动作） 不是 &quot;changed&quot;（改变 过去式） 也不是 &quot;changes&quot;（改变三单形式） 。</li>
+<li>正文应该包括变化的动机，并与之前的行为进行对比。</li>
+</ul>
+
+<p><strong>footer 页脚</strong></p>
+
+<ul>
+<li>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</li>
+<li>如果当前代码与上一个版本不兼容，则 Footer 部分以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动理由和迁移方法。</li>
+</ul>
+
+<p>页脚应包含对问题的结束引用（如果有）。请参照以下格式：</p>
+
+<ul>
+<li>close 关闭（动作）</li>
+<li>closes 关闭（三单形式）</li>
+<li>closed 关闭（过去式）</li>
+<li>fix 修理（动作）</li>
+<li>fixes 修理（三单形式）</li>
+<li>fixed 修理（过去式）</li>
+<li>resolve 解决（动作）</li>
+<li>resolves 解决（三单形式）</li>
+<li>resolved 解决（过去式）</li>
+</ul>
+
+<p>格式要求：</p>
+
+<pre><code># 标题行：50个字符以内，描述主要变更内容
+#
+# 主体内容：更详细的说明文本，建议72个字符以内。 需要描述的信息包括:
+#
+# * 为什么这个变更是必须的? 它可能是用来修复一个bug，增加一个feature，提升性能、可靠性、稳定性等等
+# * 他如何解决这个问题? 具体描述解决问题的步骤
+# * 是否存在副作用、风险?
+#
+# 尾部：如果需要的化可以添加一个链接到issue地址或者其它文档，或者关闭某个issue。
+</code></pre>
+
+<p>示例：</p>
+
+<pre><code>feat(ALL): Add Projet
+
+前端 H5 组件库
+</code></pre>
+
+<p>Git command:</p>
+
+<pre><code>git add -A
+
+git cz # 凡是用到git commit命令，一律改为使用 git cz
+</code></pre>
+
+<h2 id="toc_10">参考</h2>
+
+<p><a href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git分支管理策略</a></p>
+
+<p><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解</a></p>
+
+<p><a href="http://www.15yan.com/topic/yi-dong-kai-fa-na-dian-shi/6yueHxcgD9Z/">GitLab Flow的使用</a></p>
+
+<p><a href="http://zengrong.net/post/1746.htm">Git查看、删除、重命名远程分支和tag</a></p>
+
+<p><a href="http://blog.jobbole.com/76867/">Git工作流指南：Gitflow工作流</a></p>
+
+<p><a href="http://www.cnblogs.com/cnblogsfans/p/5075073.html">Git 在团队中的最佳实践--如何正确使用Git Flow</a></p>
+
+<p><a href="https://ihower.tw/blog/archives/5140">Git flow 開發流程</a></p>
+
+<p><a href="http://www.infoq.com/cn/articles/douban-code-2years/">豆瓣 CODE 两年历程回顾：git 不是万能的，没有 review 是万万不能的</a></p>
+
+<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a></p>
+
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/11/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15114996077689.html">
+                
+                  <h1>虽然只是个单页</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>ajax, comet, localstorege, cookie</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/11/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15114982991851.html">
+                
+                  <h1>聊聊 WeChat，撩个咪</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>不务正业的标题下隐藏着，一颗专业，正直的心。</p>
+
+<p>WeChat 发展到今天这个规模，有点让人吃惊，不论未来如何，我们都要抓住眼前的机会：搭载这艘战舰，乘风破浪前行。</p>
+
+<h2 id="toc_0">除了有个好爹，还碰上了好时运</h2>
+
+<p>在谈 WeChat 之前，不得不提一个事情，移动互联网的浪潮下 H5 应用蓬勃发展。在这个大趋势大浪潮下，孕育了很多新机会，也创造了更多的崛起机会。</p>
+
+<p>WeChat 之所以能发展到今天这个规模，无非以下几点：</p>
+
+<ol>
+<li>移动互联网浪潮，H5 应用数量和规模。</li>
+<li>适应快速发展的市场需求：迅速，便捷，灵活。</li>
+<li>较低开发成本。</li>
+</ol>
+
+<p>众所周知，大树底下好乘凉，有腾讯这个亲爸。做什么事情，都事半功倍。</p>
+
+<h2 id="toc_1">在 WeChat 里，我们都可以做什么</h2>
+
+<p>wechat 背景</p>
+
+<p>wechat 可以做到什么</p>
+
+<p>如何善用 wechat</p>
+
+<p>重定向地址，微信回调，openid，加签验签</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/11/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>一只鱼的理想</h1>
+                <div class="site-des">弹指一挥间、偶来扫扫灰#by Rich1e#</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="fe.html"><strong>FELike</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15114998607619.html">我想跟你谈谈 Gitflow</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15114996077689.html">虽然只是个单页</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15114982991851.html">聊聊 WeChat，撩个咪</a>
+			      </li>
+		     
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+
+  </body>
+</html>
