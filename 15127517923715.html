@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  FELike - 一只鱼的理想
+  Fast Configure Of Sublime Text - 一只鱼的理想
   
   </title>
   
@@ -96,23 +96,36 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="15127517923715.html">
-                
-                  <h1>Fast Configure Of Sublime Text</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>我是一枚 <strong>FE</strong>，接触 <code>Sublime Text</code> 有几年时间了，一直在 <code>windows</code> 和 <code>osx</code> 两个平台上使用，感觉非常的棒！这期间有很多心得和总结想要跟大家分享，所以写了此文。</p>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Fast Configure Of Sublime Text</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/12/9</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='fe.html'>FELike</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>我是一枚 <strong>FE</strong>，接触 <code>Sublime Text</code> 有几年时间了，一直在 <code>windows</code> 和 <code>osx</code> 两个平台上使用，感觉非常的棒！这期间有很多心得和总结想要跟大家分享，所以写了此文。</p>
 
 <p><em>本文欲打造一个</em><em><code>最小学习成本</code></em><em>又可快速投入使用的</em><em>入门配置</em><em>。</em></p>
 
@@ -335,435 +348,43 @@ Sublime_diagram_plugin
 
 <p><a href="https://www.sublimetext.com/docs/3/vintage.html">Vintage Mode</a></p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/9</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15127462200707.html">
-                
-                  <h1>Mac 下 iTerm2 实现 ssh 自动登录</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>使用 iTerm2 的时候，总是要一遍遍的敲用户名、密码。 我在想， 能不能像 Windows 的软件一样，可以直接让软件记住。然后只要点击一下，就直接 ssh 到远程服务器上面去了。现在可以用 expect 脚本实现。</p>
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15129614948470.html" 
+          title="Previous Post: Hero Emblems 攻略">&laquo; Hero Emblems 攻略</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15127462200707.html" 
+          title="Next Post: Mac 下 iTerm2 实现 ssh 自动登录">Mac 下 iTerm2 实现 ssh 自动登录 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
-<h2 id="toc_0">安装 expect</h2>
 
-<pre><code>brew install expect
-</code></pre>
 
-<h2 id="toc_1">运行脚本</h2>
-
-<pre><code>#!/usr/bin/expect -f
-  set user &lt;用户名&gt;
-  set host &lt;ip地址&gt;
-  set port &lt;端口&gt;
-  set password &lt;密码&gt;
-  set timeout -1
-
-  spawn ssh $user@$host -p $port
-  expect &quot;*assword:*&quot;
-  send &quot;$password\r&quot;
-  interact
-  expect eof
-</code></pre>
-
-<h2 id="toc_2">iTerm2 配置</h2>
-
-<p>打开 Preferences -&gt; Profiles，然后在 Command 中填入你的脚步路径： ~/your_path</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127467849493.jpg" alt=""/></p>
-
-<blockquote>
-<p>permission denied: ~/your_path</p>
-</blockquote>
-
-<p>加上可执行权限，方式是 </p>
-
-<pre><code>chmod -R a+x ~/your_path
-</code></pre>
-
-<p><strong>如何使用？</strong></p>
-
-<p>快捷键 <code>Command + o</code> 打开如下图所示的 <strong>Profiles</strong>，选择 <strong>New Tab</strong>：</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127472811836.jpg" alt=""/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/8</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15127431443661.html">
-                
-                  <h1>搬瓦工开启 TCP-BBR 加速</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>最近上网速度很卡，而且不太稳定，去查了一些资料，发现 TCP-BBR 可以加速 ss 服务。不过，由于搬瓦工是基于 OpenVZ，所以折腾了好一会才弄清楚安装配置。现在感觉速度还可以，有兴趣的童鞋可以试试。</p>
-</blockquote>
-
-<ul>
-<li>
-<a href="#toc_0">安装 TCP-BBR</a>
-</li>
-<li>
-<a href="#toc_1">Shadowsocks 安装</a>
-</li>
-<li>
-<a href="#toc_2">Shadowsocks 优化</a>
-</li>
-<li>
-<a href="#toc_3">FAQ</a>
-</li>
-<li>
-<a href="#toc_4">Reference</a>
-</li>
-</ul>
-
-
-<p>OpenVZ 虚拟化安装要求：</p>
-
-<ul>
-<li>LKL 要求 ldd 的版本在 2.14以上 ，ldd --verson 查看，64位系统，建议安装 CentOS7，Debian8 或 Ubuntu16；</li>
-<li>默认的端口转发只转发了 <strong>9000-9999</strong> 的端口，如需修改请参照下面教程；</li>
-</ul>
-
-<h2 id="toc_0">安装 TCP-BBR</h2>
-
-<p>TCP-BBR 一键安装包命令，</p>
-
-<pre><code>wget --no-check-certificate https://github.com/91yun/uml/raw/master/lkl/install.sh &amp;&amp; bash install.sh
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127086488178.jpg" alt=""/></p>
-
-<p><code>ping 10.0.0.2</code>，如果 10.0.0.2 能 ping 通说明成功。</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127088635892.jpg" alt=""/></p>
-
-<p>修改转发端口</p>
-
-<p>1.修改 <code>/root/lkl/run.sh</code>，查找 <strong>9000-9999</strong> ，改成你想要的端口；</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127094945879.jpg" alt=""/></p>
-
-<p>2.修改 <code>/root/lkl/haproxy.cfg</code>，查找 <strong>9000-9999</strong> ，改成你想要的端口；</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127095584274.jpg" alt=""/></p>
-
-<ol>
-<li><code>reboot</code> 重启 VPS。 </li>
-</ol>
-
-<blockquote>
-<p>要卸载 TCP-BBR 的唯一办法就是重装内核或重装系统，所以没有在新机器中测试成功之前不建议在生成环境中使用！</p>
-</blockquote>
-
-<h2 id="toc_1">Shadowsocks 安装</h2>
-
-<p>使用 root 用户登录，运行以下命令：</p>
-
-<pre><code>wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh &amp;&amp; chmod +x shadowsocks.sh &amp;&amp; ./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
-</code></pre>
-
-<p>卸载方法，使用root用户登录，运行以下命令：</p>
-
-<pre><code>./shadowsocks.sh uninstall
-</code></pre>
-
-<p>配置文件路径：</p>
-
-<pre><code>/etc/shadowsocks.json
-</code></pre>
-
-<p>单用户配置文件：</p>
-
-<pre><code>{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;server_port&quot;:your_server_port,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;your_password&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;your_encryption_method&quot;,
-    &quot;fast_open&quot;: false
-}
-</code></pre>
-
-<p>多用户多端口配置文件：</p>
-
-<pre><code>{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;port_password&quot;:{
-         &quot;8989&quot;:&quot;password0&quot;,
-         &quot;9001&quot;:&quot;password1&quot;,
-         &quot;9002&quot;:&quot;password2&quot;,
-         &quot;9003&quot;:&quot;password3&quot;,
-         &quot;9004&quot;:&quot;password4&quot;
-    },
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;your_encryption_method&quot;,
-    &quot;fast_open&quot;: false
-}
-</code></pre>
-
-<p>使用命令</p>
-
-<pre><code>启动：/etc/init.d/shadowsocks start
-停止：/etc/init.d/shadowsocks stop
-重启：/etc/init.d/shadowsocks restart
-状态：/etc/init.d/shadowsocks status
-</code></pre>
-
-<h2 id="toc_2">Shadowsocks 优化</h2>
-
-<ul>
-<li><p><strong>修改服务器参数</strong></p>
-
-<ol>
-<li><p>首先将服务器内核升级到3.5或更高。</p>
-
-<pre><code>vi /etc/security/limits.conf
-</code></pre>
-
-<p>添加两行：</p>
-
-<pre><code>* soft nofile 51200
-* hard nofile 51200
-</code></pre>
-
-<p>设置 ulimit：</p>
-
-<pre><code>ulimit -n 51200
-</code></pre></li>
-<li><p>然后编辑 sysctl.conf</p>
-
-<pre><code>vi /etc/sysctl.conf
-</code></pre>
-
-<p>添加配置：</p>
-
-<pre><code>fs.file-max = 51200
-
-net.core.rmem_max = 67108864
-net.core.wmem_max = 67108864
-net.core.netdev_max_backlog = 250000
-net.core.somaxconn = 4096
-
-net.ipv4.tcp_syncookies = 1
-net.ipv4.tcp_tw_reuse = 1
-net.ipv4.tcp_tw_recycle = 0
-net.ipv4.tcp_fin_timeout = 30
-net.ipv4.tcp_keepalive_time = 1200
-net.ipv4.ip_local_port_range = 10000 65000
-net.ipv4.tcp_max_syn_backlog = 8192
-net.ipv4.tcp_max_tw_buckets = 5000
-net.ipv4.tcp_fastopen = 3
-net.ipv4.tcp_mem = 25600 51200 102400
-net.ipv4.tcp_rmem = 4096 87380 67108864
-net.ipv4.tcp_wmem = 4096 65536 67108864
-net.ipv4.tcp_mtu_probing = 1
-net.ipv4.tcp_congestion_control = hybla
-</code></pre>
-
-<p>加载配置：</p>
-
-<pre><code>sysctl -p
-</code></pre></li>
-</ol></li>
-<li><p><strong>开启 SS 的 <code>fast_open</code></strong></p>
-
-<pre><code># 查看系统内核版本
-cat /proc/version
-# 查看系统内核fast_open是否开启
-cat /proc/sys/net/ipv4/tcp_fastopen
-# 如果值是1，说明已开启(3.7+默认开启)，如果值时0，需要修改内核参数
-echo &quot;net.ipv4.tcp_fastopen = 1&quot; &gt;&gt; /etc/sysctl.conf
-# 使修改的内核配置生效
-sysctl -p
-</code></pre>
-
-<p>只要我们系统内核大于3.7，就可以通过修改 Shadowsocks 配置文件来开启这个选项，用来降低延迟:</p>
-
-<pre><code>{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;server_port&quot;:your_server_port,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;your_password&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;your_encryption_method&quot;,
-    &quot;fast_open&quot;: true
-}
-</code></pre></li>
-</ul>
-
-<blockquote>
-<p>如果你的 vps 是 KVM 架构方案，可以升级内核。</p>
-</blockquote>
-
-<p>contOS 7 下操作指南：</p>
-
-<pre><code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-
-rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127222850402.jpg" alt=""/></p>
-
-<p>仓库启用后，你可以使用下面的命令列出可用的内核相关包：</p>
-
-<pre><code>yum --disablerepo=&quot;*&quot; --enablerepo=&quot;elrepo-kernel&quot; list available
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127223508829.jpg" alt=""/></p>
-
-<p>接下来，安装最新的主线稳定内核：</p>
-
-<pre><code>yum --enablerepo=elrepo-kernel install kernel-ml
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127224147842.jpg" alt=""/><br/>
-<img src="http://p06ki0wzp.bkt.clouddn.com/15127224626814.jpg" alt=""/></p>
-
-<p>最后，重启机器并应用最新内核，接着运行下面的命令检查最新内核版本：</p>
-
-<pre><code>uname -sr
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127230931089.jpg" alt=""/></p>
-
-<h2 id="toc_3">FAQ</h2>
-
-<blockquote>
-<p>Error: Your VPS is based on OpenVZ, not be supported.</p>
-</blockquote>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127083590282.jpg" alt=""/></p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127093801295.jpg" alt=""/></p>
-
-<p><em>结论：以上的方式不适合 openVZ，只适合 KVM、Xen 安装。</em></p>
-
-<blockquote>
-<p>sysctl: permission denied on key &#39;net.nf_conntrack_max&#39;</p>
-</blockquote>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127145522249.jpg" alt=""/></p>
-
-<p><em>解决：在网上七找八翻的终于找到了，据说是 openvz 模版的问题（谷歌翻译是这样说的），要进行修复操作， 执行下面四个命令：</em></p>
-
-<pre><code># 修复 modprobe 
-rm -f /sbin/modprobe 
-ln -s /bin/true /sbin/modprobe
-
-# 修复sysctl的：
-rm -f /sbin/sysctl 
-ln -s /bin/true /sbin/sysctl
-
-# 再次执行 
-sysctl -p
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127148734886.jpg" alt=""/></p>
-
-<p>好了，终于没报错了。</p>
-
-<h2 id="toc_4">Reference</h2>
-
-<p><a href="https://blog.kuoruan.com/48.html">搬瓦工(Bandwagonhost)搭建Shadowsocks并优化速度</a></p>
-
-<p><a href="https://teddysun.com/342.html">Shadowsocks Python版一键安装脚本</a></p>
-
-<p><a href="http://www.jianshu.com/p/726bd9f37220">CentOS 7 升级内核</a></p>
-
-<p><a href="https://legolasng.github.io/2017/05/08/upgrade-centos-kernel/">升级内核 &amp; 开启BBR</a></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/8</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
-
-
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			 <a href="fe_1.html">&raquo; Next Page</a> 
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

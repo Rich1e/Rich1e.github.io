@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  我想跟你谈谈 Gitflow - 一只鱼的理想
+  一只鱼的理想
   
   </title>
   
@@ -96,36 +96,187 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>我想跟你谈谈 Gitflow</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2017/11/24</span>
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="15119635312834.html">
+                
+                  <h1>Mac 科学上网指南</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li>
+<a href="#toc_0">Shadowsocks</a>
+</li>
+<li>
+<a href="#toc_1">Privoxy</a>
+</li>
+<li>
+<a href="#toc_2">ProxyChains-NG</a>
+</li>
+<li>
+<a href="#toc_3">参考</a>
+</li>
+</ul>
 
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='fe.html'>FELike</a></span>
-           
-         
-          <span class="comments">
-            
 
-            
-          </span>
+<h2 id="toc_0">Shadowsocks</h2>
 
-        </div>
-      </div><!-- article -->
+<p>此处省略若干</p>
 
-      <div class="article-content">
-      <blockquote>
+<p><strong>Mac 安装</strong></p>
+
+<p><strong>ShadowsocksX-NG 使用</strong> <a href="https://github.com/shadowsocks/ShadowsocksX-NG">地址</a></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119646125389.png" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119646325735.png" alt=""/></p>
+
+<p>以上表示，<strong>http 代理到 1087，SOCKS 代理到 1080，PAC 代理到 1089</strong>。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119647452925.png" alt=""/></p>
+
+<h2 id="toc_1">Privoxy</h2>
+
+<p>Privoxy 是一个代理软件。还可以屏蔽网页广告、视频广告等。</p>
+
+<p><strong>Privoxy 安装</strong></p>
+
+<pre><code>brew install privoxy
+</code></pre>
+
+<p><strong>Privoxy 配置</strong></p>
+
+<p>Privoxy 的配置文件在 <code>/usr/local/etc/privoxy/config</code>， 配置如下：</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119647667170.png" alt=""/></p>
+
+<blockquote>
+<p>note: 第一句监听 <strong>8887</strong> 端口，后面的意思是将流量转发到 SOCKS 代理（127.0.0.1:1080）上。</p>
+</blockquote>
+
+<p><strong>Privoxy 转发</strong></p>
+
+<p>i 将浏览器的流量全部转发到SOCKS。这里使用了 SwitchyOmega，新建一个情景模式：</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119647838715.png" alt=""/></p>
+
+<p>ii 将手机上的流量全部转发到SOCKS。bee 是通过 mac 自带的共享WiFi功能建立，然后配置代理：192.168.2.1 端口 8887。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119647991813.png" alt=""/></p>
+
+<hr/>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119648243349.png" alt=""/></p>
+
+<h2 id="toc_2">ProxyChains-NG</h2>
+
+<blockquote>
+<p>note：macOS 10.11 后下由于开启了 SIP（System Integrity Protection） 会导致命令行下 proxychains-ng 代理的模式失效，如果你要使用 proxychains-ng 这种简单的方法，就需要先关闭 SIP。</p>
+</blockquote>
+
+<p>具体的关闭方法如下：</p>
+
+<p><strong>部分关闭 SIP</strong></p>
+
+<p>重启Mac，按住Option键进入启动盘选择模式，再按⌘ + R进入Recovery模式。<br/>
+实用工具（Utilities）-&gt; 终端（Terminal）。<br/>
+输入命令 <code>csrutil enable --without debug</code> 运行。<br/>
+重启进入系统后，终端里输入 <code>csrutil status</code>，结果中如果有 <strong>Debugging Restrictions: disabled</strong> 则说明关闭成功。</p>
+
+<p><strong>完全关闭 SIP</strong></p>
+
+<p>重启Mac，按住Option键进入启动盘选择模式，再按⌘ + R进入Recovery模式。<br/>
+实用工具（Utilities）-&gt; 终端（Terminal）。<br/>
+输入命令 <code>csrutil disable</code> 运行。<br/>
+重启进入系统后，终端里输入 <code>csrutil status</code>，结果中如果有 <strong>System Integrity Protection status:disabled</strong> 则说明关闭成功。</p>
+
+<p><strong>ProxyChains-NG 安装</strong></p>
+
+<pre><code>brew install proxychains-ng
+</code></pre>
+
+<p><strong>ProxyChains-NG 配置</strong></p>
+
+<p>ProxyChains-NG 的配置文件在 <code>/usr/local/etc/proxychains.conf</code>， 配置如下：</p>
+
+<pre><code>socks5 127.0.0.1 1080
+</code></pre>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119648656990.png" alt=""/></p>
+
+<p>为 proxychains4 添加 alias</p>
+
+<pre><code>alias pc=&quot;proxychains4&quot;
+</code></pre>
+
+<p>如果是使用 iTerm，可以设置前缀补全。快捷键为 <code>⌥ + p</code> ，键值为 <code>0x1 0x70 0x63 0x20 0xd</code></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15119648830577.png" alt=""/></p>
+
+<p><strong>ProxyChains-NG 使用</strong></p>
+
+<pre><code>proxychains4 程序 参数
+
+proxychains4 curl ip.cn    #测试
+
+pc curl ip.cn              #同上一样效果
+
+pc -q /bin/zsh             #全局代理shell
+</code></pre>
+
+<h2 id="toc_3">参考</h2>
+
+<p><a href="https://lvii.gitbooks.io/outman/content/">WHY · 科学上网漫游指南</a></p>
+
+<p><a href="https://www.hi-linux.com/posts/48321.html">通过ProxyChains-NG实现终端下任意应用代理 | 运维之美</a></p>
+
+<p><a href="https://www.zfanw.com/blog/privoxy-tutorial.html">Privoxy 简明教程 - 陈三</a></p>
+
+<p><a href="https://www.zfanw.com/blog/privoxy-forward-ssh.html">Privoxy 转发 SSH</a></p>
+
+<p><a href="https://www.zfanw.com/blog/privoxy-proxy-share.html">Privoxy 共享代理 - 陈三</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/11/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15114998607619.html">
+                
+                  <h1>我想跟你谈谈 Gitflow</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
 <p>俗话说，没有规矩不成方圆。每当有新人报道时，人事都会带领他们去进行一场隆重的‘洗礼’：宣讲公司文化，组织架构等等。经过这样的安排，就顺利成章的变为了公司的‘乖乖羊’。</p>
 </blockquote>
 
@@ -469,43 +620,81 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
 
 <p><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a></p>
 
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/11/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
-    
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15114996077689.html">
+                
+                  <h1>虽然只是个单页</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>ajax, comet, localstorege, cookie</p>
 
-      </div>
+<p>（未完待续）</p>
 
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15119635312834.html" 
-          title="Previous Post: Mac 科学上网指南">&laquo; Mac 科学上网指南</a>
-      
-        </p>
-        </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15114996077689.html" 
-          title="Next Post: 虽然只是个单页">虽然只是个单页 &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/11/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
-          
-
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
 
 
-
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   <a href="all_1.html">&laquo; Prev Page</a>  
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="all_3.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

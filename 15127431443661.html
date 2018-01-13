@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  FELike - 一只鱼的理想
+  搬瓦工开启 TCP-BBR 加速 - 一只鱼的理想
   
   </title>
   
@@ -96,352 +96,36 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="15127517923715.html">
-                
-                  <h1>Fast Configure Of Sublime Text</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>我是一枚 <strong>FE</strong>，接触 <code>Sublime Text</code> 有几年时间了，一直在 <code>windows</code> 和 <code>osx</code> 两个平台上使用，感觉非常的棒！这期间有很多心得和总结想要跟大家分享，所以写了此文。</p>
-
-<p><em>本文欲打造一个</em><em><code>最小学习成本</code></em><em>又可快速投入使用的</em><em>入门配置</em><em>。</em></p>
-
-<p>倘若你已急不可耐，可以略过其他，根据 <strong>Edit Configuration File</strong> 直接配置 <code>Sublime Text</code> 。如有兴致也可以细细评味本文其他内容。</p>
-
-<h2 id="toc_0">Install Package Control</h2>
-
-<p><strong>Sublime Text 3</strong></p>
-
-<pre><code>import urllib.request,os,hashlib; h = &#39;2915d1851351e5ee549c20394736b442&#39; + &#39;8bc59f460fa1548d1514676163dafc88&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)
-</code></pre>
-
-<p><strong>Sublime Text 2</strong></p>
-
-<pre><code>import urllib2,os,hashlib; h = &#39;2915d1851351e5ee549c20394736b442&#39; + &#39;8bc59f460fa1548d1514676163dafc88&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &#39;wb&#39; ).write(by) if dh == h else None; print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h) if dh != h else &#39;Please restart Sublime Text to finish installation&#39;)
-</code></pre>
-
-<h2 id="toc_1">Install Plug-in</h2>
-
-<pre><code># 自动化
-AllAutocomplete
-
-# 自动匹配文件名
-AutoFileName
-
-# Bracket Highlighter 匹配等多种括号: [], (), {}, &quot;&quot;, &#39;&#39;, &lt;tag&gt;&lt;/tag&gt;, 甚至定制的 Bracket。
-BracketHighlighter
-
-#　支持多种编码，解决中文乱码问题。
-ConvertToUTF8　
-
-# javascript 文档注释块
-DocBlockr
-
-# HTML\CSS 编写神器，提供特殊的简写语法。
-Emmet
-
-# Evernote 支持
-Evernote
-
-# 在可视区域内查找文本，并快速编辑
-EasyMotion
-
-# 文件对比工具，支持第三方对比工具。
-FileDiffs
-
-# 查找冲突的快捷键
-FindKeyConflicts
-
-# `format` HTML\CSS\JS，混合也支持。
-HTML-CSS-JS Prettify
-
-# 显示一个图标在行号里区域指示是否一行被插入,修改或删除。
-GitGutter
-
-# 样式修改工具
-LiveStyle
-
-# 清除多余空格
-TrailingSpaces
-
-# `format` JSON数据
-Pretty JSON
-
-# 主题
-Predawn
-
-# `Side Bar` 高级功能扩展
-SideBarEnhancements
-
-# 代码检查
-SublimeLinter
-
-# `Javascript` 语法检查
-SublimeLinter-jshint
-
-# `Javascript` 格式检查
-SublimeLinter-jscs
-
-# `org mode` 扩展支持
-orgmode
-
-# 支持 `Todo` `task`
-PlainTasks
-
-# [PlantUML 画图](https://github.com/jvantuyl/sublime_diagram_plugin)
-Sublime_diagram_plugin
-</code></pre>
-
-<h2 id="toc_2">Edit Configuration File</h2>
-
-<p>打开 Preferences -&gt; Settings - User，在 Preferences.sublime-settings 中编辑：</p>
-
-<pre><code>// Settings in here override those in &quot;Default/Preferences.sublime-settings&quot;,
-// and are overridden in turn by file type specific settings.
-{
-    // Theme &amp;&amp; Color
-    &quot;color_scheme&quot;: &quot;Packages/Color Scheme - Default/Solarized (Dark).tmTheme&quot;,
-
-    // File settings
-    &quot;default_encoding&quot;: &quot;UTF-8&quot;,
-    &quot;word_separators&quot;: &quot;./\\()\&quot;&#39;:,.;&lt;&gt;~!@#%^&amp;*|+=[]{}`~?&quot;,
-
-    // Font
-    &quot;font_size&quot;: 13,
-    &quot;font_face&quot;: &quot;Source Code Pro&quot;,
-    &quot;font_options&quot;:
-    [
-        &quot;directwrite&quot;
-    ],
-    &quot;line_padding_top&quot;: 0,
-    &quot;line_padding_bottom&quot;: 0,
-
-    // Cursor style
-    &quot;wide_caret&quot;: true,
-    &quot;caret_style&quot;: &quot;phase&quot;,
-    &quot;caret_extra_bottom&quot;: 0,
-    &quot;caret_extra_top&quot;: 0,
-    &quot;caret_extra_width&quot;: 3,
-
-    // Editor behavior
-    &quot;auto_complete&quot;: true,
-    &quot;scroll_past_end&quot;: false,
-    &quot;scroll_speed&quot;: 5.0,
-    &quot;highlight_modified_tabs&quot;: true,
-
-    // Editor view look-and-feel
-    &quot;highlight_line&quot;: true,
-    &quot;enable_tab_scrolling&quot;: false,
-    &quot;line_numbers&quot;: true,
-    &quot;gutter&quot;: true,
-    &quot;draw_centered&quot;: false,
-    &quot;draw_minimap_border&quot;: true,
-    &quot;fold_buttons&quot;: false,
-
-
-    // Word wrapping - follow PEP 8 recommendations
-    &quot;rulers&quot;: [ 72, 79 ],
-    &quot;word_wrap&quot;: true,
-    &quot;wrap_width&quot;: 80,
-
-    // Ignore set
-    &quot;ignored_packages&quot;:
-    [
-        &quot;Vintage&quot;
-    ],
-
-    // Whitespace
-    &quot;tab_size&quot;: 4,
-    &quot;translate_tabs_to_spaces&quot;: false,
-    &quot;trim_trailing_white_space_on_save&quot;: true,
-    &quot;ensure_newline_at_eof_on_save&quot;: true,
-
-    // Sidebar - exclude distracting files and folders
-    &quot;file_exclude_patterns&quot;:
-    [
-    ],
-    &quot;folder_exclude_patterns&quot;:
-    [
-    ],
-
-    // Vi
-    &quot;vintage_ctrl_keys&quot;: true,
-    &quot;vintage_start_in_command_mode&quot;: false,
-
-    // Other
-    &quot;show_full_path&quot;: true,
-    &quot;show_encoding&quot;: true,
-
-    // Close update
-    &quot;update_check&quot;: false
-}
-</code></pre>
-
-<h2 id="toc_3">Add Right-Click Menu by Windows</h2>
-
-<pre><code>Windows Registry Editor Version 5.00
-
-[HKEY_CLASSES_ROOT\*\shell\Open with Sublime Text 3]
-&quot;Icon&quot;=&quot;D:\\Program Files\\Sublime Text Build 3083 x64\\sublime_text.exe,0&quot;
-
-[HKEY_CLASSES_ROOT\*\shell\Open with Sublime Text 3\command]
-@=&quot;D:\\Program Files\\Sublime Text Build 3083 x64\\sublime_text.exe %1&quot;
-</code></pre>
-
-<p>将以上代码保存为<code>.reg</code>文件，点击执行就可以加入右键菜单了。</p>
-
-<p>（Ps：sublime 安装路径需以实际情况自行修改）</p>
-
-<h2 id="toc_4">OS X Command Line</h2>
-
-<p><strong>Sublime 3</strong></p>
-
-<p><code>ln -s &quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&quot; ~/bin/subl</code></p>
-
-<p><strong>Sublime 2</strong></p>
-
-<p><code>ln -s &quot;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&quot; ~/bin/subl</code></p>
-
-<h2 id="toc_5">Vintage Mode</h2>
-
-<p>osx 光标移动延迟，需要在命令中输入：</p>
-
-<p><code>defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false</code></p>
-
-<h2 id="toc_6">Set Keymap</h2>
-
-<pre><code>{ &quot;keys&quot;: [&quot;j&quot;, &quot;j&quot;], &quot;command&quot;: &quot;exit_insert_mode&quot;,
-    &quot;context&quot;:
-    [
-        { &quot;key&quot;: &quot;setting.command_mode&quot;, &quot;operand&quot;: false },
-        { &quot;key&quot;: &quot;setting.is_widget&quot;, &quot;operand&quot;: false }
-    ]
-}
-</code></pre>
-
-<h2 id="toc_7">Reference</h2>
-
-<p><a href="https://packagecontrol.io/installation">Package Control</a></p>
-
-<p><a href="https://www.sublimetext.com/docs/3/vintage.html">Vintage Mode</a></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/9</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15127462200707.html">
-                
-                  <h1>Mac 下 iTerm2 实现 ssh 自动登录</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>使用 iTerm2 的时候，总是要一遍遍的敲用户名、密码。 我在想， 能不能像 Windows 的软件一样，可以直接让软件记住。然后只要点击一下，就直接 ssh 到远程服务器上面去了。现在可以用 expect 脚本实现。</p>
-
-<h2 id="toc_0">安装 expect</h2>
-
-<pre><code>brew install expect
-</code></pre>
-
-<h2 id="toc_1">运行脚本</h2>
-
-<pre><code>#!/usr/bin/expect -f
-  set user &lt;用户名&gt;
-  set host &lt;ip地址&gt;
-  set port &lt;端口&gt;
-  set password &lt;密码&gt;
-  set timeout -1
-
-  spawn ssh $user@$host -p $port
-  expect &quot;*assword:*&quot;
-  send &quot;$password\r&quot;
-  interact
-  expect eof
-</code></pre>
-
-<h2 id="toc_2">iTerm2 配置</h2>
-
-<p>打开 Preferences -&gt; Profiles，然后在 Command 中填入你的脚步路径： ~/your_path</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127467849493.jpg" alt=""/></p>
-
-<blockquote>
-<p>permission denied: ~/your_path</p>
-</blockquote>
-
-<p>加上可执行权限，方式是 </p>
-
-<pre><code>chmod -R a+x ~/your_path
-</code></pre>
-
-<p><strong>如何使用？</strong></p>
-
-<p>快捷键 <code>Command + o</code> 打开如下图所示的 <strong>Profiles</strong>，选择 <strong>New Tab</strong>：</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127472811836.jpg" alt=""/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/8</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15127431443661.html">
-                
-                  <h1>搬瓦工开启 TCP-BBR 加速</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>搬瓦工开启 TCP-BBR 加速</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/12/8</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='fe.html'>FELike</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <blockquote>
 <p>最近上网速度很卡，而且不太稳定，去查了一些资料，发现 TCP-BBR 可以加速 ss 服务。不过，由于搬瓦工是基于 OpenVZ，所以折腾了好一会才弄清楚安装配置。现在感觉速度还可以，有兴趣的童鞋可以试试。</p>
 </blockquote>
 
@@ -724,46 +408,43 @@ sysctl -p
 
 <p><a href="https://legolasng.github.io/2017/05/08/upgrade-centos-kernel/">升级内核 &amp; 开启BBR</a></p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/8</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15127462200707.html" 
+          title="Previous Post: Mac 下 iTerm2 实现 ssh 自动登录">&laquo; Mac 下 iTerm2 实现 ssh 自动登录</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15119635312834.html" 
+          title="Next Post: Mac 科学上网指南">Mac 科学上网指南 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			 <a href="fe_1.html">&raquo; Next Page</a> 
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

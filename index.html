@@ -77,6 +77,12 @@
 
         
             <li><a href="fe.html">FELike</a></li>
+        
+            <li><a href="%E6%9E%9D%E6%9E%9D%E8%94%93%E8%94%93.html">枝枝蔓蔓</a></li>
+        
+            <li><a href="%E8%B5%B0%E8%B5%B0%E7%9C%8B%E7%9C%8B.html">走走看看</a></li>
+        
+            <li><a href="%E9%97%B2%E6%83%85%E9%80%B8%E8%87%B4.html">闲情逸致</a></li>
          
 
       </ul>
@@ -99,356 +105,152 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="15114998607619.html">
+                <a class="clearlink" href="15158351946987.html">
                 
-                  <h1>我想跟你谈谈 Gitflow</h1>
+                  <h1>「星球大战」赏析</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<blockquote>
-<p>俗话说，没有规矩不成方圆。每当有新人报道时，人事都会带领他们去进行一场隆重的‘洗礼’：宣讲公司文化，组织架构等等。经过这样的安排，就顺利成章的变为了公司的‘乖乖羊’。</p>
-</blockquote>
+                        	<p>最近一周时间里看完了星球大战（1-8），原力觉醒看了两遍。对于整个星球大战的历史，有了比较全面的了解。同时，也深深被这个系列所着迷。</p>
 
-<p>IT 界发展有十几年了，从一开始的各自为战，转变为团队作战。能做到这件事情的最微妙的关键就是，墨守成规。</p>
+<p>也查找了许多有关星球大战的分析文章及观影感想，触动很大。有几篇写的非常详细，很多地方也都细致的描述了影片中存在的事物，比较客观。对于想深入了解的星战迷来说，非常有价值，最后我会贴出地址。</p>
 
-<p>最近在看一本书，未来简史。里面有一段描述人跟动物的差别：人可以很自然的融入不同的环境中去适应生活并参与劳动，但动物不行。</p>
+<p>以下是一些资料，供大家理解整个星座故事背景。</p>
 
-<p>现在，我想向大家隆重推荐，gitflow。</p>
+<h2 id="toc_0">历史发展</h2>
 
-<ul>
-<li>
-<a href="#toc_0">分支策略</a>
-<ul>
-<li>
-<a href="#toc_1">常用分支</a>
-</li>
-<li>
-<a href="#toc_2">临时分支</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_3">Pull / Merge Request</a>
-</li>
-<li>
-<a href="#toc_4">Code Review</a>
-</li>
-<li>
-<a href="#toc_5">Git Command</a>
-</li>
-<li>
-<a href="#toc_6">Commit</a>
-<ul>
-<li>
-<a href="#toc_7">使用了哪些开源项目及作用</a>
-</li>
-<li>
-<a href="#toc_8">操作流程</a>
-</li>
-<li>
-<a href="#toc_9">Git commit 日志基本规范</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_10">参考</a>
-</li>
-</ul>
+<p>　　邪恶无处不在，从过去世到未来世，从你我的心中，到浩瀚的宇宙，它时而狂暴肆虐，时而潜伏无息，却永不消亡。正如夜望星空，你看到最多的并非满天繁星，而且那隐藏在灿烂星光背后无边无际的黑暗。</p>
 
+<p>　　就在古老的银河系之黑暗深处，邪恶帝国“西斯”掌控着一种神秘的力量“黑暗原力”——原力又叫念力，一种沉眠于你我体内的可怕原始力量，经过特别训练可用意念将其唤醒并操控，极似武侠小说里的内功。 “西斯大帝”达斯·西迪厄斯，所有灾难的始作俑者，一直潜伏在黑暗中，对银河系共和国虎视眈眈。</p>
 
-<p><img src="media/15114998607619/git-model@2x.png" alt="git-model@2x"/></p>
+<p>　　而西斯的克星，则是银河系“绝地武士”，他们都是来自不同人种的杰出博击家，以维护星系安全与正义为己任，掌握着共同的力量——也叫原力，当然是正派武功。绝地武士平时都处于分散隐秘的修炼状态，但随时会响应共和国的召唤聚集在最危险的一线战场，他们的聚集地叫“绝地圣殿”，他们的领袖是老态龙钟双耳尖长、走路如蜗牛博击似矫龙的小矮人尤达大师。绝地武士们最常用的武器是光剑，造型跟手电没两样，只是光柱无坚不摧。黑暗武士们也使用光剑，造型比较多。</p>
 
-<h2 id="toc_0">分支策略</h2>
+<p>　　当西斯大帝发动阴谋进攻时，银河系共和国内部出现一些反常现象，议会最高议长帕尔帕庭总是在不断扩张自己的势力范围，这引起了一些敏锐而有责任感的议员的注意，他们决定聚会商量对策。</p>
 
-<ul>
-<li><strong>代码库的常设分支始终只有 master 和 develop，临时分支最后都删除。</strong></li>
-<li><strong>临时分支合并到常用分支时，必须发起 Pull / Merge Requset ，并指定一个人 code review。</strong></li>
-<li><strong>远程临时分支由发起者追踪和维护， reviewer 负责删除。</strong></li>
-<li>所有的开发和迭代尽量都在临时分支上。</li>
-<li>开发记录、功能集成、测试历史由 develop 分支管理，正式发布记录由 master 分支管理。</li>
-<li>发布和部署时，必须新建发布分支。<code>（发布分支基于 develop 分支）</code></li>
-<li>发布和部署完成后，必须将发布分支合并回 develop / master 分支，然后删除发布分支。</li>
-<li>合并到 master 分支的代码必须打上 Tag。<code>（Tag：版本号、描述、日期）</code></li>
-</ul>
+<p>　　就在年轻美丽的参议员、纳布星球女王帕米·阿米达拉（Padmé Amidala）赶赴这次聚会途中，她遭到西斯劫持，绝地武士欧比旺·肯诺比（Obi-Wan Kenobi）和他的师傅奉命前往纳布救出了参议员，但在他们逃离时，飞船被炮火击中，迫降沙漠行星“塔图因”维修。在寻找飞船零件时，他们在这个到处是奴隶和流浪者的地方遇上了整个《星战》系列的核心主角、年仅10岁的奴隶安纳金·天行者（Anakin Skywalker）。</p>
 
-<h3 id="toc_1">常用分支</h3>
+<p>　　安纳金·天行者（Anakin Skywalker）的聪颖和潜质使欧比旺·肯诺比（Obi-Wan Kenobi）的师父震惊，后者认定安纳金·天行者（Anakin Skywalker）一定是预言中绝地武士划时代的人物，于是帮助安纳金·天行者（Anakin Skywalker）重获自由，并决定对他授以绝地之道。但当他们正要离开“塔图因”星球时，却遇到了邪恶的达斯·马尔，经过血战才得以逃脱魔爪。但训练安纳金·天行者（Anakin Skywalker）的计划遭到了绝地大师们的极力反对，因为他们看出在安纳金·天行者（Anakin Skywalker）内心深处充满恐惧、愤怒和仇恨，而不是爱。欧比旺·肯诺比（Obi-Wan Kenobi）的师父没有理会，仍坚持要训练安纳金·天行者（Anakin Skywalker）。</p>
 
-<p><strong>master: 正式发布</strong></p>
+<p>　　美丽的帕米·阿米达拉（Padmé Amidala）的星球纳布受到西斯机器人军团的袭击，但她发现议会中没人愿意出兵相助，于是与沼泽土著冈加人结成联盟与邪恶势力展开大战。欧比旺·肯诺比（Obi-Wan Kenobi）师徒也重返纳布，协助对抗达斯马尔的入侵，安纳金·天行者（Anakin Skywalker）驾驶战机击毁了机器人控制舰，欧比旺·肯诺比（Obi-Wan Kenobi）的师父被达斯·马尔所杀，在愤怒的欧比旺·肯诺比（Obi-Wan Kenobi）剑下，达斯马尔也难逃一死。战后，为实现师父的遗愿，欧比旺·肯诺比（Obi-Wan Kenobi）决定继续训练安纳金·天行者（Anakin Skywalker），安纳金·天行者（Anakin Skywalker）正式成为绝地弟子（以上为《星球大战前传 I：幽灵的威胁》）。</p>
 
-<p>master 分支上存放的应该是随时可供在生产环境中部署的代码（Production Ready state）。当开发活动告一段落，产生了一份新的可供部署的代码时，master 分支上的代码会被更新。同时，每一次更新，需要添加对应的版本号标签（TAG）。</p>
+<p>　　隐秘而艰苦的训练不知不觉进行了10年，当年的小奴隶安纳金·天行者（Anakin Skywalker）已经成长为英俊挺拔、身手不凡的少年武士。此时银河系越来越动荡。在杜库伯爵策动下，有几千个太阳星系决定一起脱离银河系共和国。银河系共和国在军力不足的情况下决定勉强组成临时军队镇压分裂分子。但这一决定遭到参议员帕米·阿米达拉（Padmé Amidala）极力反对，聪明善良的纳布星球女王不愿意共和国仓促出战，那样无异自取灭亡。恼羞成怒的最高议长帕尔帕庭遂派人谋杀帕米·阿米达拉（Padmé Amidala）。安纳金·天行者（Anakin Skywalker）奉命前去保护帕米·阿米达拉（Padmé Amidala）的安全。在护送帕米·阿米达拉（Padmé Amidala）前往安全避难所的途中，一种青涩微妙的感情开始在两个年轻人心里滋生。</p>
 
-<p><strong>develop: 日常开发</strong></p>
+<p>　　就在议会内部正邪交锋越来越烈、共和国危机四伏之际，绝地武士获得了外太空友好力量的鼎力相助，最终动用克隆人军队强劲对抗分裂主义分子的机器人军团的进攻。年轻的安纳金·天行者（Anakin Skywalker）在战斗中失去右手。一直以智慧化身存在的绝地武士首领尤达大师，终于在与杜库伯爵的生死大战中展现了惊人的剑术与原力，最终杜库伯爵使诈逃走（《星球大战前传 II：克隆人的进攻》）。</p>
 
-<p>develop 分支是保存当前最新开发成果的分支。通常这个分支上的代码也是可进行每日夜间发布的代码（Nightly build）。因此这个分支有时也可以被称作“integration branch”。</p>
+<p>　　克隆人军队与机器人军团的大战延续了三年之久，战火几乎烧遍了银河系所有的星球，星系遭到前所未有的严重破坏，饥饿与痛苦四处蔓延。 分裂主义军团节节败退，大战看起来快要结束了，正义即将战胜邪恶，安纳金·天行者（Anakin Skywalker）与帕米·阿米达拉（Padmé Amidala）的爱情也越来越深。</p>
 
-<h3 id="toc_2">临时分支</h3>
+<p>　　但就在此时，分裂联盟军团的最高指挥官格里沃斯将军和杜克伯爵意外绑架了银河系共和国最高议长帕尔帕庭。安纳金·天行者（Anakin Skywalker）和师父欧比旺·肯诺比（Obi-Wan Kenobi）穿越枪林弹雨炮火硝烟攻入分裂盟军总部所在的飞船，找到了杜克伯爵囚禁帕尔帕庭的地方。欧比旺·肯诺比（Obi-Wan Kenobi）叮嘱安纳金·天行者（Anakin Skywalker）一定要生擒杜库伯爵，以便追查到操纵伯爵的西斯“西斯大帝” 达斯·西迪厄斯的所在。</p>
 
-<p><strong>功能分支</strong></p>
+<p>　　两个绝地武士分别与杜克伯爵和格里沃斯将军展开了光剑格斗，安纳金·天行者（Anakin Skywalker）对抗杜克伯爵，帕尔帕庭被绑在大厅的一张大椅子上，注视着二人的决斗。战斗中，帕尔帕庭不时地给年轻的绝地武士一些暗示，安纳金·天行者（Anakin Skywalker）最终忘记了生擒伯爵的任务，在冲动和仇恨的驱使下夺下杜克伯爵的光剑并斩下伯爵的人头，救出了帕尔帕庭，但格里沃斯却趁机溜走。</p>
 
-<p>功能分支，开发新功能都从 develop 分支出来，从 develop 分支上面分出来的。开发完成后，要再并入 develop。</p>
+<p>　　英雄们在共和国议会受到热烈欢迎。帕尔帕庭以个人名义感谢安纳金·天行者（Anakin Skywalker）的英雄行为并推荐安纳金·天行者（Anakin Skywalker）加入绝地武士会。战争看起来真的结束了，但帕尔帕庭却拒绝放弃他的紧急处置权，也不愿意解散克隆人军队，因为他认为“真正”的威胁目前还并没有被镇压。</p>
 
-<p><strong>发布分支</strong></p>
+<p>　　帕尔帕西大权在握，独裁的倾向越来越明显。美丽的帕米·阿米达拉（Padmé Amidala）向情人表示了自己的疑虑，但安纳金·天行者（Anakin Skywalker）始终认为帕尔帕庭是出于公心。与此同时，安纳金·天行者（Anakin Skywalker）越来越郁闷，由于他不听指挥擅杀杜库伯爵，不仅没有赢得绝对武士们的尊敬，反而被停止了工作。</p>
 
-<p>发布分支，准备要 release 的版本，只修 bugs。从 develop 分支上面分出来，发布结束以后，必须合并进 develop 和 master 分支。</p>
+<p>　　就在此时，帕尔帕庭请安纳金·天行者（Anakin Skywalker）作他的私人保镖，并告诉安纳金·天行者（Anakin Skywalker），绝对武士对安纳金·天行者（Anakin Skywalker）的处理极其错误，而且帕尔帕西还认为绝地武士已经开始变得软弱与堕落，并宣称专制主义是银河系最好的政体。</p>
 
-<p><strong>修补分支</strong></p>
+<p>　　安纳金·天行者（Anakin Skywalker）在帕尔帕庭的诱惑下越走越远，他的情人帕米·阿米达拉（Padmé Amidala）则邀请一些有正义感的议员来她的房间开会，主要商讨怎样削弱帕尔帕庭的权力。残留的机器人军团仍在一些星球作乱，尤达大师和安纳金·天行者（Anakin Skywalker）的师父欧比旺·肯诺比（Obi-Wan Kenobi）分别前往一些星球率克隆人和当地部队与机器人作战，并追杀分裂联军主帅格里沃斯。</p>
 
-<p>修补分支，是指等不及 release 版本就必须马上修 master 赶上线的情况。它是从 master 分支上面分出来的。修补结束以后， 再合并进 master 和 develop 分支。</p>
+<p>　　当欧比旺·肯诺比（Obi-Wan Kenobi）骑着蜥蜴兽追踪格里沃斯来到一个山洞时，发现格里沃斯正在同“西斯大帝”达斯·西迪厄斯通话，商讨消灭绝地武士事宜。此刻，欧比旺·肯诺比（Obi-Wan Kenobi）终于发现了一个惊天秘密——西斯西斯大帝达斯·西迪厄斯和最高议长帕尔帕庭竟是同一个人！</p>
 
-<h2 id="toc_3">Pull / Merge Request</h2>
+<p>　　格里沃斯将军发现了欧比旺·肯诺比（Obi-Wan Kenobi），两人展开决斗，格里沃斯的双臂各自从中分裂开变成了四只手臂，在四只光剑的攻击下，欧比旺·肯诺比（Obi-Wan Kenobi）渐渐不敌。但在关键时刻，他还是使用原力从格里沃斯的枪套中调出激光枪将其击毙。由于格里沃斯是整个银河系中分裂主义机器人军团的主脑，他的死致使所有机器军队断线瘫痪。同时，尤达大师和其他各路绝地大师率领的克隆军团在各个星系都取得了全线胜利，历时三年的“克隆人的进攻”至此以共和国的胜利告终。</p>
 
-<p>代码合并到 master / develop 分支：</p>
+<p>　　然而，真正的故事才刚刚开始。</p>
+
+<p>　　欧比旺·肯诺比（Obi-Wan Kenobi）等绝地武士攻进帕尔帕庭官邸，帕尔帕庭没有掩饰更没有惊慌，并施展源自邪恶帝国西斯的黑暗源力，以前所未见的恐怖剑技杀死了几乎所有前来的绝地武士，仅剩温杜大师独自沉着应战。安纳金·天行者（Anakin Skywalker）恰在此时从情人那里赶到官邸，温杜呼唤安纳金·天行者（Anakin Skywalker）一起消灭帕尔帕庭，帕尔帕庭则告诉安纳金·天行者（Anakin Skywalker）绝地武士已经堕落必须清理。</p>
+
+<p>　　安纳金·天行者（Anakin Skywalker）感到迷茫了，他必须在温杜和帕尔帕庭之间作出选择。安纳金·天行者（Anakin Skywalker）最终站到了温杜身边，却拔剑刺进了他的后背。英勇的温杜大师死了。帕尔帕庭向安纳金·天行者（Anakin Skywalker）公开了他的真实身份，并说出他的目的是要建立帝国。他掌握了安纳金·天行者（Anakin Skywalker）心理的恐惧以及其他弱点，引导这个年轻绝地武士的自负和傲慢意识，并指出绝地武士已经腐败和无能了。这些话引发了安纳金·天行者（Anakin Skywalker）内心深处一切委屈和痛苦的爆发，他发誓效忠帕尔帕庭，并受命率暴风军团赴绝地圣殿完成清剿任务。</p>
+
+<p>　　帕尔帕庭来到议会发表演说，声称绝地武士想刺杀他，交战过程中面容被毁，绝地武士已经完全背叛了银河系。更令议会震惊的是，帕尔帕庭宣称将共和制改变为帝制，而他自己就是帝国的皇帝，由此银河帝国成立。他的第一个命令就是取缔绝地秩序、清除所有绝地武士。他诬陷绝地武士是所有这些银河系骚乱的起源，并指责绝地武士挑起了战争。他宣布绝地武士是整个银河系的敌人。富有正义感的议员震惊了，但是他们根本没有能力阻止帕尔帕庭，只能选择离去。</p>
+
+<p>　　安纳金·天行者（Anakin Skywalker）奉帕尔帕庭之命率暴风军团闯进绝地圣殿，屠杀了包括儿童在内的所有绝地武士，并启动了全息通讯仪：声称战争已经结束了，欺骗银河系中所有绝地武士撤回到圣殿，以斩草除根。</p>
+
+<p>　　与此同时，在各个星球的克隆军团被神秘力量驱使，突然掉转枪口向绝地武士发动攻击，武士们相继遇难，尤达大师奋战之后骑上一个巨大的蜻蜓样飞行兽撤离，并与同样躲避克隆人攻击的欧比旺·肯诺比（Obi-Wan Kenobi）会合，并潜回绝地圣殿，并通过监视录象了解到了安纳金·天行者（Anakin Skywalker）的所作所为。欧比旺·肯诺比（Obi-Wan Kenobi）还发现了全息通讯仪上设置的圈套，并告知幸存的绝地武士立即隐蔽起来。尤达大师认为欧比旺·肯诺比（Obi-Wan Kenobi）还无法战胜“西斯大帝”，所以派他去寻找安纳金·天行者（Anakin Skywalker），而自己则孤身挑战“西斯大帝”，尽管这是一个自杀性的决定。<br/>
+　　　　<br/>
+　　随后，欧比旺·肯诺比（Obi-Wan Kenobi）找到了帕米·阿米达拉（Padmé Amidala），试图通过她找到安纳金·天行者（Anakin Skywalker）。但帕米·阿米达拉（Padmé Amidala）不愿意相信安纳金·天行者（Anakin Skywalker）已经向邪恶转变了，并告诉了欧比旺·肯诺比（Obi-Wan Kenobi）她已经怀上了安纳金·天行者（Anakin Skywalker）的孩子。</p>
+
+<p>　　欧比旺·肯诺比（Obi-Wan Kenobi）趁帕米·阿米达拉（Padmé Amidala）不注意，悄悄搭乘了她的飞行器，在遍布火山和熔岩的马斯塔法星球找到了安纳金·天行者（Anakin Skywalker），这位深坠邪恶泥淖的年轻剑士正在替帕尔帕庭清除残余分裂主义军队的投降。</p>
+
+<p>　　美丽的帕米·阿米达拉（Padmé Amidala）仍然爱着安纳金·天行者（Anakin Skywalker），并试图劝他重返正途，但安纳金·天行者（Anakin Skywalker）却怪她不该帮助绝地武士，盛怒之下用原力窒息术将爱人提到半空中，狠狠摔到地上，帕米·阿米达拉（Padmé Amidala）头部重创昏了过去，最后被及时赶来的R2-D2、C-3PO抢救至飞船中。</p>
+
+<p>　　安纳金·天行者（Anakin Skywalker）的行为让师父欧比旺·肯诺比（Obi-Wan Kenobi）痛心疾首，他抽出了光剑，于是这场即将改变安纳金·天行者（Anakin Skywalker）命运的决斗展开了。他们从停机坪直打到火山熔岩峡谷的边缘。安纳金·天行者（Anakin Skywalker）此时的原力已经强于欧比旺·肯诺比（Obi-Wan Kenobi），但战斗经验仍然欠缺。欧比旺·肯诺比（Obi-Wan Kenobi）最后一次恳求安纳金·天行者（Anakin Skywalker）弃暗投明，但此时的安纳金·天行者（Anakin Skywalker）已经无法回头了，他使出最后的力量想杀死欧比旺·肯诺比（Obi-Wan Kenobi），欧比旺·肯诺比（Obi-Wan Kenobi）及时躲闪，并砍下了安纳金·天行者（Anakin Skywalker）一腿一臂。由于失去重心，跌落火山熔岩边缘，被火焰灼烧了全身。看着火焰中煎熬的安纳金·天行者（Anakin Skywalker），欧比旺·肯诺比（Obi-Wan Kenobi）悲痛离去。<br/>
+　　<br/>
+　　就在此时，尤达大师与帕尔帕庭的决斗也展开了，两人从会议室战斗至议会发言场地，最终尤达大师以失败告终。随后，尤达等人摆脱追兵驾飞船离开了首都。</p>
+
+<p>　　“西斯大帝”感受到安纳金·天行者（Anakin Skywalker）还存活着，于是赶去营救。通过医疗机器人奇迹般救活了安纳金·天行者（Anakin Skywalker），并植入邪恶悍将达斯·维德的黑色盔甲，现在他的身体已大部分是机械装置了。获知帕米·阿米达拉（Padmé Amidala）被自己害死后，安纳金·天行者（Anakin Skywalker）悲愤咆哮，黑暗原力如暴风般狂乱倾泻，医疗机器人破裂损毁，墙壁凹陷变形，连“西斯大帝”达斯·西迪厄斯几乎都无法抵御这股强大的冲击。 </p>
+
+<p>　　安纳金·天行者（Anakin Skywalker）的咆哮回荡着，欧比旺·肯诺比（Obi-Wan Kenobi）和尤达大师也通过原力感到安纳金·天行者（Anakin Skywalker）的复活。<br/>
+　　<br/>
+　　在一处秘密基地里，可怜的帕米·阿米达拉（Padmé Amidala）早产生下女儿莱娅和儿子卢克后身心俱创，永远离开了这个混乱的、让她伤心的世界。她的遗体则被运回纳布星球安葬，由于担心这对双胞胎被西斯感应，所以决定她的女儿莱娅由正义议员收养，儿子卢克则由欧比旺·肯诺比（Obi-Wan Kenobi）安置给安纳金·天行者（Anakin Skywalker）的出生地、沙漠星球塔图因上的家人收养，欧比旺·肯诺比（Obi-Wan Kenobi）自己则就近隐居，密切关注卢克的成长。</p>
+
+<p>　　此时，尤达大师在查阅古老的绝地典籍时发现了一种古老的再生技术——绝地武士死后源力得到强化并保留自己的精神。并将这个技术告知和传授给欧比旺·肯诺比（Obi-Wan Kenobi）。</p>
+
+<p>　　黑暗与邪恶主导了银河系，但绝地武士并没有消亡，正义的力量仍未灭绝，银河帝国西斯大帝达斯·西迪厄斯决定建造新的军事基地“死星”。此时安纳金·天行者（Anakin Skywalker），不，他已经不再是安纳金·天行者（Anakin Skywalker）了，而是西斯黑暗勋爵达斯·维德，他走出歼星舰与达斯·西迪厄斯一起望向苍穹，太空中，死星已经开始建造……（《星球大战前传 III：西斯的复仇》）</p>
+
+<p>　　十几年过去了，安纳金·天行者（Anakin Skywalker）之子卢克长大成人，就像安纳金·天行者（Anakin Skywalker）当年一样英挺帅气。此时他无意中发现身陷险境的莱娅的求救，而此时他还不知道自己与莱娅的关系。在救莱娅的途中，他得到了父亲安纳金·天行者（Anakin Skywalker）的光剑，并救出了莱娅，且毁灭了由黑暗勋爵达斯·维德主持建造的太空战斗基地——死星，此时，他仍不知道自己的父亲就是达斯·维德。（《星球大战 IV：新希望》）</p>
+
+<p>　　死星虽然毁坏，但“黑武士”达斯·维德和“西斯大帝”仍未消灭，于是卢克找到尤达大师，接受绝地训练。后来在与达斯·维德的斗剑中，卢克才知道仇人竟然就是自己的亲生父亲！面对父亲无比强大的黑暗原力的诱惑，卢克断然拒绝。（《星球大战 V：帝国反击战》）</p>
+
+<p>　　正义与邪恶最终的大决战终于来临了！在铲除黑暗势力的前夜，卢克告诉莱娅，他们是自幼失散的姐弟，而黑暗勋爵达斯·维德则是他们的生父。然后，卢克独自去找维德，试图救赎自己的父亲，不料身陷险境。维德为救儿子，与西斯大帝达斯·西迪厄斯同归于尽。卢克等人最终击溃了西斯帝国的防线，银河系终于重归正义、和平与民主。（《星球大战 VI：绝地归来》）<br/>
+　　<br/>
+　　银河帝国覆亡三十年后，其余烬中诞生了第一秩序。第一秩序最高领袖、熟悉原力黑暗面的斯诺克指派军队指挥官哈克斯将军以及忍武士团首脑凯洛·伦寻找下落不明的绝地大师卢克·天行者。第一秩序循线追查一份地图来到了行星贾库（Jakku），抓住新共和国所属的抵抗势力的X翼战机驾驶员波·达默龙，凯洛·伦用原力迫使他说出地图在逃脱的BB-8机器人身上，开始进行追捕。同时，编号FN-2187的风暴兵对自己所属阵营的行径产生抗拒及怀疑，在决心脱离第一秩序后帮助波一同驾驶钛战机逃离所在的歼星舰战舰，其间波替FN-2187取了“芬恩”这个名字。然而钛战机在太空中被歼星舰的导弹击中坠回贾库星，两人失散。芬恩在当地的市集遇见了BB-8及拾荒女孩蕾伊，随后因BB-8被侦查兵发现，市集遭到空袭，蕾伊驾驶荒废多年的千年隼号载着三者逃离贾库星。千年隼在太空中滞留时被走私客韩·索罗与丘巴卡的大型太空船捕捉，同时间韩的债主群找上门并发现被通缉的BB-8，五人只得一同搭乘千年隼逃离现场。韩得知蕾伊等人的现况后答应寻找能够带他们前往抵抗势力基地的人，并说明卢克的消失是由于其训练的一名学徒堕落至黑暗面，背叛卢克并杀害了他其余的学徒，卢克便自我放逐远离世事。</p>
+
+<p>　　韩·索罗等人到达了塔可达纳星（Takodana）的太空休息站，在此芬恩决定远离抵抗势力与第一秩序的战争，前往边境星域。而蕾伊则突然感受到原力的呼唤，找到了被休息站经营者玛兹·卡娜塔收藏、曾属于卢克与阿纳金·天行者的光剑。此时，哈克斯将军在由雪地行星改造而成的弑星者基地上启用新型武器，基地放射出的巨大红色能源光束直击新共和国参议院所在的霍斯连恩（Hosnian）星系，一举毁灭数颗星球和当地的新共和舰队。凯洛·伦的部队循线抵达塔可达纳星搜捕BB-8，芬恩挂念蕾伊的安危返回，却与韩·索罗及丘巴卡同遭俘虏，眼睁睁看着凯洛·伦带走了看过地图的蕾伊。危急之际，抵抗势力的X翼战机部队赶到并解救了众人，其总司令莱娅·奥加纳将军和机器人C-3PO在战斗结束后到达，接着众人一同回到抵抗势力基地行星迪卡（D&#39;Qar），芬恩与波于此惊喜重逢。当众人检视BB-8身上的地图时，却发现地图并不完整，被怀疑藏有地图其余部分的R2-D2则自卢克失踪后就一直处于休眠状态。</p>
+
+<p>　　弑星者基地上，凯洛·伦试图用原力从蕾伊身上取得情报不成，反被原力觉醒的蕾伊反读取出自己害怕无法和维达同样强大的恐惧。同时，哈克斯将军获得摧毁抵抗势力基地的指示，令弑星者基地开始充填能量。抵抗势力得知第一秩序的行动后派遣韩·索罗与芬恩、丘巴卡潜入弑星者基地，挟持法斯马队长令其解除星球防护罩以利X翼战机进行空袭，并与趁凯洛·伦离开之际用原力脱困的蕾伊会合。韩·索罗在基地反应器装设炸药时遇到凯洛·伦，便站出来与其面对面，原来凯洛·伦就是背叛卢克的学徒，也就是莱娅与韩的儿子班·索罗。但凯洛·伦拒绝了韩·索罗的劝说并杀死了自己的父亲，悲痛的丘巴卡开枪射中凯洛·伦的腹部，随后被风暴兵追击，同样在现场的芬恩和蕾伊则被凯洛·伦拦截。芬恩被凯洛·伦重创后蕾伊拿起光剑与凯洛·伦交手，而后在蕾伊被凯洛·伦压制之际，凯洛·伦对她的劝诱再度让蕾伊已觉醒的原力发挥出来，蕾伊以此击败了凯洛·伦。丘巴卡引爆炸弹，加上X翼战机的轰炸引起基地反应器的连锁效应，使弑星者基地所在的星球开始崩毁。分崩离析的地表隔离了蕾伊和凯洛·伦，蕾伊随即带着昏迷的芬恩回到丘巴卡驾驶的千年隼，凯洛·伦则被第一秩序的人带走。</p>
+
+<p>　　回到抵抗势力基地后，R2-D2终于苏醒，把储存的地图与BB-8的结合，成功拼出寻找卢克的完整指引。蕾伊与丘巴卡、R2-D2驾驶千年隼一起出发，前往位于遥远星系的星球。一座被大海围绕的小岛上，蕾伊独自走到岛的最高处，见到卢克·天行者。蕾伊拿出光剑欲还给他，卢克则报以感触良深的表情。寻找卢克·天行者的旅程结束了，新的传承旅程即将展开。（《星球大战：原力觉醒》）</p>
+
+<p>　　新共和国的所在地霍斯尼亚星系被第一秩序所属的改造行星-弑星者基地开炮狙击，随后，新共和政府所属的参议院及军事力量已然崩溃覆灭，第一秩序接着控制住了各大重点星系，新的银河独裁霸权开始逐渐形成。但是，在原新共和国所属武装组织抵抗势力即将揭竿而起，以摔角手向第一秩序抗战之际，其战略行动根据地行星迪卡的座标被第一秩序所掌握，两方舰队在迪卡星附近的宙域进行交战。一开始，抵抗势力的王牌飞行员波·达默龙率领T–70型X翼星式战斗机所组成的先锋部队进行突击开路，借此为搭载了质子航弹的MG-100型星际要塞式轰炸机机队护航，同一时刻，第一秩序的重生者级灭星舰舰队开始投放己方规格的钛战机机队进行迎击，大战一触即发，双方机队你来我往，在一场激烈的空对空缠斗后，钛战机机队的航炮重创了抵抗势力的轰炸机机队，而且，第一秩序总司令-哈克斯将军呼叫他们唯一一艘最新锐舰–第4代命令者级围攻型无畏舰立刻跳跃来此宙域，无畏舰抵达后，用其腹侧装配的重型爆能火炮攻击迪卡星上准备撤离的抵抗势力残余人员，就在千钧一发之际，逃生飞船及时起飞，逃过了敌军的炮击轰炸，但是，万万没想到，被重创的抵抗势力轰炸机机队竟还剩最后一架漏网之鱼没被击坠，此时，原本想重设舰底的轨道自动炮炮架以对抵抗势力的旗舰-MC85型星际巡洋舰拉杜斯号开火的无畏舰舰长，他见大事不妙便立即下令拦截那架敌方轰炸机，然而，抵抗势力最后一架轰炸机成功投弹，一炸就轰沈了敌军最棘手的无畏舰，随后，抵抗势力全体同仁共同逃往外太空进行撤退。</p>
+
+<p>　　不久之后，第一秩序舰队使用新式光速追踪技术，持续追击在抵抗势力舰队之后，而且，最高领袖斯诺克的百万级星际无畏舰至上号也布署在内。抵抗势力总司令莱娅·奥加纳将军在后续交战的过程中受创昏迷，艾米琳·何朵中将接替了她的职位。</p>
+
+<p>　　弑星者基地战役后原力觉醒的蕾伊来到了行星Ahch-To，在拥有上千世代历史的绝地遗迹小岛上见到绝地大师卢克·天行者。卢克拒绝跟蕾伊回到抵抗势力，但后来同意指导她进行原力的训练。此时蕾伊与身处至上号的凯洛·伦两人的意识不知原因为何不断被原力连结起来，凯洛·伦对蕾伊说他堕落至黑暗面的根源在于被卢克背叛。卢克告知蕾伊过去的真相是，当黑暗面在自己的外甥班·索罗心中滋长时，卢克恐惧自己将重蹈欧比旺·克诺比培育出达斯·维达的覆辙，因此一度欲杀害班。尽管卢克最终没有痛下杀手，当时还在光明与黑暗中挣扎的班却经此变故后一夜间堕落至黑暗面成为凯洛·伦，更将卢克培育下一代绝地武士的心血全部摧毁。所以卢克认为绝地武士只是不断在重复同样的过错，是时候该终结其历史。蕾伊认为唯有将班引领回光明才是击败斯诺克的唯一胜算，便不再试图劝导固执的卢克，而与丘巴卡驾驶千年隼号启程去见凯洛·伦。蕾伊离开后，卢克的师傅尤达大师以绝地英灵的型态出现在他面前，教诲他不应以凯洛·伦的惨痛经验而放弃蕾伊，失败就是卢克的最佳良师。</p>
+
+<p>　　抵抗势力舰队被第一秩序持续追击后只剩下拉杜斯号尚存，芬恩与整备作业员萝丝·缇克偷偷前往赌场星球Canto Bight上寻找解码高手，并计划潜入至上号关闭光速追踪系统，但被当地警察以非法停泊飞船的罪名逮捕，两人在狱中遇到一位神秘人物，他自称能够破解第一秩序的密码帮助两人潜入至上号，然后三人得到BB-8的帮助下逃狱，乘上从一位军火贩子“偷来的”的太空船潜进至上号。另一方面，蕾伊只身前来与凯洛·伦会面，凯洛·伦则将她带往斯诺克的面前。蕾伊与凯洛·伦从斯诺克口中得知，他们意识间的连结就是他的杰作，目的是为了勾引蕾伊来见凯洛·伦，进而得知卢克的下落，好把最后的绝地武士天行者赶尽杀绝。斯诺克用原力从蕾伊身上获得绝地遗迹的情报后，下令凯洛·伦亲手杀死蕾伊以完成原力黑暗面的训练，不料凯洛·伦却用原力操控斯诺克身旁的光剑将其杀害。由于斯诺克的死亡让蕾伊与凯洛·伦共同对抗一旁的红色禁卫军。战胜后，凯洛·伦向蕾伊表示，他所要的是葬送绝地及西斯这些旧时代的遗产，将银河系纳入自己的统治版图之下以建立新秩序，并邀请蕾伊与他合作。但蕾伊选择的则是朋友，两人决裂并短暂交手后，蕾伊驾驶斯诺克的逃生艇离开至上号。</p>
+
+<p>　　在拉杜斯号的燃料即将耗尽之际，抵抗势力终于抵达前义军同盟废弃掉的基地行星-Crait附近的宙域，何朵中将下令舰上所有人员搭乘逃生飞船前往该基地星避难，自己则孤身掌舵驾驶拉杜斯号把第一秩序舰队吸引开来。虽然芬恩、萝丝和解码高手成功潜入至上号，但三人行动事迹败露，遭到法斯马队长逮捕并将被处决，只有解码高手获释还得到赎金，因为他将抵抗势力弃舰逃亡的情报泄露给第一秩序知道，他亦是背后为第一秩序和抵抗势力两方提供武器的军火贩子。第一秩序开始集中火力攻击歼灭载满了抵抗势力成员的逃生飞船船团，何朵中将见状后立马转舵将拉杜斯号的舰艏调转，再使用超空间驱动器以光速撞击至上号，在成功歼灭敌方舰队时壮烈牺牲。芬恩与萝丝趁舰体爆炸的混乱中逃了出来，过程中法斯马队长被芬恩打入燃烧的舰体破损区。</p>
+
+<p>　　两方在基地星Crait的陆域上展开最终决战，抵抗势力穷途末路陷入绝望之际，卢克突然现身对抗第一秩序。眼见任何爆能火炮都无法伤及卢克，已成为第一秩序新任最高领袖的凯洛·伦与他展开光剑剑击格斗，然而凯洛·伦最终发现他所面对的卢克只是其战斗冥想所造成的原力分身。卢克成功地争取时间，让蕾伊与丘巴卡用千年隼号接应莱娅及抵抗势力残余成员逃离第一秩序的追撃，让抵抗势力最后仅存的一线生机得以延续，莱娅向波宣示自今日起义军就此重生。</p>
+
+<p>　　与此同时，在行星Ahch-To的绝地遗迹小岛上，气力放尽的卢克望着眼前与家乡塔图因相同的火红双夕阳，无怨无悔地幻化成绝地英灵离世。（《星球大战：最后的绝地武士》）</p>
+
+<h2 id="toc_1">观影顺序</h2>
+
+<p>推荐你按电影系列制作拍摄的顺序来观看这个系列电影。按这个顺序观看，你会对后续每部作品的感官体验都充满遐想和期待，并且虽然没有按剧情发展的顺序来观影，但并不会让你对剧情理解构成障碍。<br/>
+对大部分影迷而言，通常更推荐这种偏向于观感体验更优化的观看顺序。</p>
 
 <ol>
-<li>将需要合并到 master / develop 的分支 push 到 gitlab。</li>
-<li>进入工程 -&gt; merge request -&gt; create new merge request</li>
-<li>选择源分支、目标分支，确定。</li>
-<li>review 负责人进入 merge request，确认没有问题之后选择 Auto Merge（或者手动在本地合并之后再 push 到 gitlab），并关闭这个 merge request，完成。</li>
-<li>如果发现问题那么在有问题的行下注释，并提醒 request 的发起人及时修改。</li>
-<li>删除本地临时分支，本地 master / develop 更新到最新状态。</li>
+<li>《星球大战 IV：新希望》（Star Wars: Episode IV - A New Hope） 1977</li>
+<li>《星球大战 V：帝国反击战》（Star Wars: Episode V - The Empire Strikes Back） 1980</li>
+<li>《星球大战 VI：绝地归来》（Star Wars: Episode VI - Return of the Jedi） 1983</li>
+<li>《星球大战前传 I：幽灵的威胁》（Star Wars: Episode I - The Phantom Menace） 1999</li>
+<li>《星球大战前传 II：克隆人的进攻》（Star Wars: Episode II - Attack of the Clones） 2002</li>
+<li>《星球大战前传 III：西斯的复仇》（Star Wars: Episode III - Revenge of the Sith） 2005</li>
+<li>《星球大战：原力觉醒》（Star Wars: The Force Awakens） 2015</li>
+<li>《星球大战：最后的绝地武士》（Star Wars: The Last Jedi）2017</li>
 </ol>
 
-<h2 id="toc_4">Code Review</h2>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158223497765.jpg" alt=""/></p>
 
-<ul>
-<li>提交 Pull / Merge Request 时， Commit 和 Message 要足够清晰详细。
-切记，如果一次提交的内容包含很多 Commit，请不要使用自动生成的描述。
-请用简短且足够说明问题的语言（理想是控制在3句话之内）来描述：</li>
-</ul>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158223690751.jpg" alt=""/></p>
 
-<blockquote>
-<p>你改动了什么，解决了什么问题，需要代码审查的人留意那些影响比较大的改动。特别需要留意，如果对基础、公共的组件进行了改动，一定要另起一行特别说明。</p>
-</blockquote>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158224311462.jpg" alt=""/></p>
 
-<ul>
-<li>审核人员邀请原则：项目参与人员 &amp; 团队同事 &amp; 团队 Leader。<strong>（对项目足够了解，对项目足够了解，对项目足够了解，重要的事情说三遍）</strong>；</li>
-<li>评论中至少出现一个 lgtm 且保证代码评审通过之后 Pull / Merge Request 才可以被合并；<code>（注：lgtm 即 looks good to me 的缩写）</code></li>
-</ul>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158213112776.jpg" alt=""/></p>
 
-<blockquote>
-<p>lgtm 需要配置插件实现功能。</p>
-</blockquote>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158223036573.jpg" alt=""/></p>
 
-<h2 id="toc_5">Git Command</h2>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158226346106.jpg" alt=""/></p>
 
-<p><strong>git checkout</strong></p>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158226525618.jpg" alt=""/></p>
 
-<pre><code># 放弃在 file.txt 的修改，恢复成未修改时的样子
-git checkout file.txt
-# 当前目录所有修改的文件，恢复成未修改时的样子
-git checkout .
-# 创建新的分支，并切换过去
-git checkout -b branchname
-</code></pre>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15158226789971.jpg" alt=""/></p>
 
-<p><strong>git tag</strong></p>
+<h2 id="toc_2">Ref</h2>
 
-<pre><code># 创建一个带版本有描述的 tag
-git tag -a v0.1.0 -m &#39;commit&#39;
-# 覆盖该版本已有 v0.1.0
-git tag -f v0.1.0
-# 推送服务器
-git push origin --tags
-# 服务器已有 v0.1.0，强制推到服务器
-git push origin -f v0.1.0
-# 服务器获取刚刚的 v0.1.0
-git fetch --tag
-# 删除本地版本
-git tag -d v0.1.0
-# 删除服务器上的tag
-git push origin :v0.1.0
-</code></pre>
-
-<p><strong>git merge</strong></p>
-
-<pre><code># 不使用 fast-forward 方式合并，保留分支的 commit 历史
-git merge --no-ff develop
-# 使用 squash 方式合并，把多次分支commit历史压缩为一次
-git merge --squash develop
-</code></pre>
-
-<p><strong>git reset</strong></p>
-
-<pre><code># 回退指定的 commit
-git reset 0c5602affd27d2224d151284bd1c6e033fd9023f
-# 回退上次修改
-git reset --hard
-</code></pre>
-
-<p><strong>git flow</strong></p>
-
-<pre><code># git flow 初始化
-git flow init
-# 创建一个新的 feature 分支
-git flow feature start name
-# 将 feature 分支推送到远程仓库
-git flow feature publish name
-# 当特性开发完毕，需要将此分支合并到 develop 分支
-git flow feature finish name
-</code></pre>
-
-<h2 id="toc_6">Commit</h2>
-
-<h3 id="toc_7">使用了哪些开源项目及作用</h3>
-
-<ul>
-<li>Commitizen
-&gt; 一个撰写合格 Commit message 的工具。</li>
-<li>validate-commit-msg
-&gt; 用于检查 Node 项目的 Commit message 是否符合格式。</li>
-<li>standard-version
-&gt; 用于依据 Commit message 生成 changelog 以及版本发布。</li>
-</ul>
-
-<h3 id="toc_8">操作流程</h3>
-
-<p>1.拉取最新代码。<br/>
-2.在<strong>本地分支</strong>开发，开发完成之后将该分支 push 到远程仓库。<br/>
-3.远程仓库上审核代码。通过之后，将分支合并到仓库主干，并清理分支。</p>
-
-<blockquote>
-<p>note: commit 内容也作为审核的一部分, 要求精准，简练，完整。对于改动较大，功能复杂的代码修改，尽量使用中文。</p>
-</blockquote>
-
-<h3 id="toc_9">Git commit 日志基本规范</h3>
-
-<p>标准参考 <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md">Contributing to AngularJS</a></p>
-
-<pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
-&lt;BLANK LINE&gt;
-&lt;body&gt;
-&lt;BLANK LINE&gt;
-&lt;footer&gt;
-</code></pre>
-
-<p><strong>type 代表某次提交的类型，比如是修复一个 bug 还是增加一个新的 feature。所有的 type 类型如下：</strong></p>
-
-<ul>
-<li>feat： 新增feature</li>
-<li>fix: 修复bug</li>
-<li>docs: 仅仅修改了文档，比如README, CHANGELOG, CONTRIBUTE等等</li>
-<li>style: 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑</li>
-<li>refactor: 代码重构，没有加新功能或者修复bug</li>
-<li>perf: 优化相关，比如提升性能、体验</li>
-<li>test: 测试用例，包括单元测试、集成测试等</li>
-<li>chore: 改变构建流程、或者增加依赖库、工具等</li>
-<li>revert: 回滚到上一个版本</li>
-</ul>
-
-<p><strong>scope 表示改动部分的受影响范围:</strong></p>
-
-<ul>
-<li>user 用户</li>
-<li>pay 支付</li>
-<li>product 产品</li>
-<li>article 文章</li>
-<li>core 核心</li>
-<li>router 路由</li>
-<li>api 接口</li>
-<li>doc 文档</li>
-<li>upgrade 升级计划</li>
-</ul>
-
-<blockquote>
-<p>note: 如果无法确认影响范围，填写修改的文件。e.g. examples.js</p>
-</blockquote>
-
-<p><strong>subject 主题，包含对变更的简明描述：</strong></p>
-
-<ul>
-<li>以动词开头，使用第一人称现在时：&quot;change&quot;（改变 动作） 不是 &quot;changed&quot;（改变 过去式） 也不是 &quot;changes&quot;（改变 三单形式）</li>
-<li>不要大写第一个字母</li>
-<li>最后没有点（。）</li>
-</ul>
-
-<p><strong>常用表述语：</strong></p>
-
-<ul>
-<li>add 添加</li>
-<li>change 改变</li>
-<li>modify 修改</li>
-<li>update 更新</li>
-<li>remove 移动</li>
-<li>delete 删除</li>
-</ul>
-
-<p><strong>body 主体</strong></p>
-
-<ul>
-<li>使用第一人称现在时，比如使用：&quot;change&quot;（改变 动作） 不是 &quot;changed&quot;（改变 过去式） 也不是 &quot;changes&quot;（改变三单形式） 。</li>
-<li>正文应该包括变化的动机，并与之前的行为进行对比。</li>
-</ul>
-
-<p><strong>footer 页脚</strong></p>
-
-<ul>
-<li>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</li>
-<li>如果当前代码与上一个版本不兼容，则 Footer 部分以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动理由和迁移方法。</li>
-</ul>
-
-<p>页脚应包含对问题的结束引用（如果有）。请参照以下格式：</p>
-
-<ul>
-<li>close 关闭（动作）</li>
-<li>closes 关闭（三单形式）</li>
-<li>closed 关闭（过去式）</li>
-<li>fix 修理（动作）</li>
-<li>fixes 修理（三单形式）</li>
-<li>fixed 修理（过去式）</li>
-<li>resolve 解决（动作）</li>
-<li>resolves 解决（三单形式）</li>
-<li>resolved 解决（过去式）</li>
-</ul>
-
-<p>格式要求：</p>
-
-<pre><code># 标题行：50个字符以内，描述主要变更内容
-#
-# 主体内容：更详细的说明文本，建议72个字符以内。 需要描述的信息包括:
-#
-# * 为什么这个变更是必须的? 它可能是用来修复一个bug，增加一个feature，提升性能、可靠性、稳定性等等
-# * 他如何解决这个问题? 具体描述解决问题的步骤
-# * 是否存在副作用、风险?
-#
-# 尾部：如果需要的化可以添加一个链接到issue地址或者其它文档，或者关闭某个issue。
-</code></pre>
-
-<p>示例：</p>
-
-<pre><code>feat(ALL): Add Projet
-
-前端 H5 组件库
-</code></pre>
-
-<p>Git command:</p>
-
-<pre><code>git add -A
-
-git cz # 凡是用到git commit命令，一律改为使用 git cz
-</code></pre>
-
-<h2 id="toc_10">参考</h2>
-
-<p><a href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git分支管理策略</a></p>
-
-<p><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解</a></p>
-
-<p><a href="http://www.15yan.com/topic/yi-dong-kai-fa-na-dian-shi/6yueHxcgD9Z/">GitLab Flow的使用</a></p>
-
-<p><a href="http://zengrong.net/post/1746.htm">Git查看、删除、重命名远程分支和tag</a></p>
-
-<p><a href="http://blog.jobbole.com/76867/">Git工作流指南：Gitflow工作流</a></p>
-
-<p><a href="http://www.cnblogs.com/cnblogsfans/p/5075073.html">Git 在团队中的最佳实践--如何正确使用Git Flow</a></p>
-
-<p><a href="https://ihower.tw/blog/archives/5140">Git flow 開發流程</a></p>
-
-<p><a href="http://www.infoq.com/cn/articles/douban-code-2years/">豆瓣 CODE 两年历程回顾：git 不是万能的，没有 review 是万万不能的</a></p>
-
-<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a></p>
-
-<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%98%9F%E7%90%83%E5%A4%A7%E6%88%98%E5%B9%B4%E8%A1%A8">星球大战年表</a></p>
 
                         
                       </div>
@@ -457,10 +259,10 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
                 <div class="read-more clearfix">
                   <div class="more-left left">
                   
-                    <span class="date">2017/11/24</span>
+                    <span class="date">2018/1/13</span>
                     <span>posted in&nbsp;</span> 
           				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          					    <span class="posted-in"><a href='%E6%9E%9D%E6%9E%9D%E8%94%93%E8%94%93.html'>枝枝蔓蔓</a></span>
           				   
                   </div>
                   <div class="more-right right">
@@ -474,14 +276,962 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
               </div><!-- article -->
         
 			<div class="article">
-                <a class="clearlink" href="15114996077689.html">
+                <a class="clearlink" href="15158349595582.html">
                 
-                  <h1>虽然只是个单页</h1>
+                  <h1>港澳深自由行</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<p>ajax, comet, localstorege, cookie</p>
+                        	<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129629283302.jpg" alt=""/></p>
+
+<p>这次整整计划了一个月、<br/>
+网上查找各类资料、每天看攻略做功课、<br/>
+日夜反复、感觉要承受不了了<br/>
+临行前才敢放松、记得出发的前一晚在心里对自己说：<br/>
+尽人事了、后面怎么开心怎么玩、</p>
+
+<p>友情提示：<br/>
+旅行是为了放松、如果因为做攻略而影响心情、还是赶紧打住吧</p>
+
+<p>对这次的旅行记忆犹新、<br/>
+到现在眼前还浮现香港的一幕幕…<br/>
+好了回味就此打住，先说说我们这次的出行计划吧～</p>
+
+<p>行程安排：<br/>
+上海 -&gt; 深圳 -&gt; 香港 -&gt; 澳门 -&gt; 香港 -&gt; 上海<br/>
+时间：<br/>
+2014-06-06 至 2014-06-12，共7日</p>
+
+<p>各种准备：<br/>
+－证件<br/>
+港澳通行证<br/>
+G签随便通关<br/>
+L签需要找旅行社，否则过不了关<br/>
+ps：港澳行，签注只需要一次香港一次澳门</p>
+
+<p>－交通<br/>
+上海去深圳：T101（火车，420CNY）<br/>
+深圳交通：地铁卡（深圳通，25CNY）<br/>
+香港交通：地铁卡（八达通，150HKD）<br/>
+香港来回澳门：喷气飞航（信德中心，159HKD/184HKD）<br/>
+香港回上海：飞机（春秋，550CNY）</p>
+
+<p>－住宿<br/>
+深圳：如家快捷／229CNY／1晚<br/>
+香港：香港尖沙咀皇悦酒店／894CNY／2晚<br/>
+如心南湾海景酒店／1,088CNY／2晚<br/>
+ps：香港的酒店上携程订的、<br/>
+深圳找了这家离罗湖口岸比较近的如家快捷</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129630288352.jpg" alt=""/></p>
+
+<p>－兑换港币<br/>
+1000HDK/1人差不多<br/>
+建议兑换面额 &lt;=500、1000的港币有的地方不好用<br/>
+ps：在香港ATM上取出来的都是港币、所以在去之前不要兑换太多</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129630590232.jpg" alt=""/></p>
+
+<p>－通信<br/>
+one2free：信号不错、上网速度也很不错、一入关就换卡了、我选择的是7天无限流量（可惜不能在澳门用）</p>
+
+<p>－门票<br/>
+昂坪360：150HKD（来回缆车）<br/>
+太平山：48CNY（双程缆车＋摩天台）<br/>
+海洋公园：280CNY（门票＋市区巴士去程＋餐券）<br/>
+ps:除了昂坪的票，都在淘宝上买好的。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129630952705.jpg" alt=""/></p>
+
+<p>－费用<br/>
+这个问题，有很多人在问。<br/>
+统一回答：每人1000HDK／天（淡季）、可以过的不错。<br/>
+费用 ＝ 住宿（50%）＋吃（30%）＋行（20%）＋玩（备注）<br/>
+备注：玩，其实不贵。但每个人的计划不一样、所以需要分开来算<br/>
+ps：购物就没上限了～所以...童鞋自己掂量吧～</p>
+
+<p>D1/2014-06-06</p>
+
+<p>天气开始转热了、之前各地一直在下雨<br/>
+有点担心、要是香港也下雨、就没什么可以玩的了<br/>
+现在这个时间也不是购物的时节（据说是圣诞节前后）</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129631193176.jpg" alt=""/></p>
+
+<p>去上海南站、坐T101（上海南站－深圳）、13:40发出<br/>
+特别选择了下铺、比较方便、第二天到深圳<br/>
+一夜无语...</p>
+
+<p>D2/2014-06-07</p>
+
+<p>早上9点半到深圳、天气有点闷热、似乎要下雨<br/>
+深圳火车站旁边是罗湖口岸、周围人不少、</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129631487132.jpg" alt=""/></p>
+
+<p>深圳火车站、</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129631653667.jpg" alt=""/></p>
+
+<p>这边是罗湖口岸、去HK走这里</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129632220225.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129632309162.jpg" alt=""/></p>
+
+<p>一下车、发现手机没电了、<br/>
+好不容易在地图上搜索到星巴克（金光华广场店）<br/>
+赶紧刚去“救急”－充电、<br/>
+顺便在里面解决了肚子问题、而后去登记旅馆</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129632468862.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129632633002.jpg" alt=""/></p>
+
+<p>这家店蛮大的、人不多、我去的时间比较早吧～<br/>
+点了一杯美式、用马克杯泡好、以往在上海都是一次性杯子、这次换了、感觉也挺好～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129632842729.jpg" alt=""/></p>
+
+<p>星巴克咖啡(金光华分店)</p>
+
+<p>在星巴克做好以下几项：</p>
+
+<ul>
+<li>手机充满电</li>
+<li>预订旅店</li>
+<li>笔架山的路线</li>
+<li>更新离线地图</li>
+</ul>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129633004913.jpg" alt=""/></p>
+
+<p>中餐是在禾绿寿司店解决、<br/>
+比较简单、快捷</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129633621909.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129633781466.jpg" alt=""/></p>
+
+<p>如家快捷酒店（深圳火车站店）</p>
+
+<p>旅店（如家快捷）在火车站附近、大概15min脚程<br/>
+这个房间的设计很特别、浴室在房间中间、整一个圆柱子、也算独树一帜吧、哈哈<br/>
+稍微休整一下、下一程：笔架山</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129634157494.jpg" alt=""/></p>
+
+<p>笔架山公园</p>
+
+<p>天气很闷热、全身都湿透了、真想赤裸上阵了、<br/>
+大概爬了快一个小时、才到山顶、累的不行、带着单反、这个时候真感觉重...</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129634356411.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129661626340.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129661738340.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129661903379.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129662039562.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129662184621.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129662300163.jpg" alt=""/></p>
+
+<p>爬完山、就去万象城了、现在真是又累又渴～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129662540313.jpg" alt=""/></p>
+
+<p>跟同学约好在满记甜品、吃喝了一顿、<br/>
+感觉肚子还是很饿、而后一起去吃饭<br/>
+万象城还不错、吃喝玩乐样样俱全</p>
+
+<p>以下开始写在香港的旅途计划～</p>
+
+<p>D3/2014-06-08<br/>
+路线：<br/>
+入关 -&gt; 登记酒店 -&gt; 海港城 -&gt; 昂坪360 -&gt; 天坛大佛 -&gt; 东荟城 -&gt; 维港（夜晚）<br/>
+一大早就起来了、整理好行李准备去罗湖口岸过关（一般8点左右就开始、尽量早点出发、不然后面人很多、特别是节假日）<br/>
+路线：<br/>
+从罗湖口岸入关 -&gt; 香港罗湖地铁站［1］ －&gt; 香港红磡地铁站［2］－&gt; 尖沙咀 －&gt; 香港尖沙咀皇悦酒店［3］</p>
+
+<p>[1]：可以在这里买八达通（必须用港币HKD）<br/>
+[2]：这个算是坐地铁去九龙、香港岛的必经之地，在这换乘<br/>
+[3]：提前咨询一下预订的酒店是什么时间登记入房、省得浪费不必要的时间</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129662803608.jpg" alt=""/></p>
+
+<p>罗湖口岸－深圳</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129673057219.jpg" alt=""/></p>
+
+<p>罗湖地铁站－香港、开往红磡</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129673245054.jpg" alt=""/></p>
+
+<p>地铁站、人很多<br/>
+感觉这还不是高峰、所以大家一定不要去挤高峰哦、伤不起~<br/>
+从红磡去尖沙咀很近、<br/>
+到了尖沙咀、直奔酒店</p>
+
+<p>ps：尖沙咀跟尖东是相通的</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129673484071.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129673624969.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129673791927.jpg" alt=""/></p>
+
+<p>酒店离尖沙咀地铁站比较近、<br/>
+到了后，感觉还不错的<br/>
+周边买东西也很方便、有海港城、DFS免税店等等<br/>
+离维港、星光大道、天星码头都比较近<br/>
+ps：要去金紫荆广场的童鞋可以从天星码头坐邮轮、顺道领略一下维港风景</p>
+
+<p>香港茶餐厅营业时，不同时段供应不同的食物，所以大家要搞清楚时间。<br/>
+比如说，早餐时段是没有中餐的、反之也是如此</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129673955918.jpg" alt=""/></p>
+
+<p>翠华茶餐厅（(加拿芬道店）)  、消费不高、值得一试<br/>
+ 他们家的特色是：鱼蛋粉</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129674342064.jpg" alt=""/></p>
+
+<p>池记（(尖沙咀店)  ）、消费不高、感觉一般<br/>
+ 他们家的特色是：云吞</p>
+
+<p>在尖沙咀地铁站沿着海防道、一路向西、<br/>
+就可以到海港城</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129674572718.jpg" alt=""/></p>
+
+<p>BURBERRY</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129674935910.jpg" alt=""/></p>
+
+<p>PRADA</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129676690333.jpg" alt=""/></p>
+
+<p>GUCCI</p>
+
+<p>海港城、里面东西很多、品牌云集<br/>
+价格不便宜、但值得一逛（东荟城东西便宜、但很多都过时了、outlet 占主流）<br/>
+后面我会分享来香港购物的看法和建议</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129677029848.jpg" alt=""/></p>
+
+<p>从海港城出去、立马坐地铁去了昂坪<br/>
+路线：<br/>
+尖沙咀 -&gt; 荔景（荃湾线）－&gt; 东涌（东涌线）</p>
+
+<p>在地铁上遇到从湖北来一家人、可能是在异地吧、聊了一会、他们在青衣下<br/>
+旁边还有一位香港的大伯、听见我们聊天后、知道我要去昂坪、很热心的带我去坐昂坪360缆车<br/>
+跟预计的相差蛮大、出来不远处就可以看到昂坪360缆车（原本以为要坐公车23路上山）</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129677277768.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129677382020.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129677521507.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129677755698.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129677875980.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129678005275.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129678116486.jpg" alt=""/></p>
+
+<p>缆车上可以看到天坛大佛</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129678421255.jpg" alt=""/></p>
+
+<p>昂坪市集－通往天坛大佛</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129678641253.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129678741350.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129678844837.jpg" alt=""/></p>
+
+<p>世界各地的缆车－法国</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679089165.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679184229.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679269720.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679362348.jpg" alt=""/></p>
+
+<p>通往天坛大佛的路上有蛮多石像、<br/>
+各种姿态、栩栩如生</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679625074.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679822527.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129679953090.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680062680.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680182814.jpg" alt=""/></p>
+
+<p>阶梯不是很多、<br/>
+人也不多、<br/>
+要是天气再凉爽一些、就给赞了、哈哈</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680435536.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680567107.jpg" alt=""/></p>
+
+<p>边走边拍、真累啊</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680735133.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680856597.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129680954214.jpg" alt=""/></p>
+
+<p>天坛大佛</p>
+
+<p>成功抵达天坛大佛<br/>
+上面的风景很不错</p>
+
+<p>凉风习习、<br/>
+让人不忍离去</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129681458471.jpg" alt=""/> </p>
+
+<p>回程也是坐缆车、<br/>
+出来后，就是大名鼎鼎的东荟城了。<br/>
+东荟城也蛮大的、好几层<br/>
+顺便溜了一圈、赶脚没什么值得买的<br/>
+大部分是过季的东西、款式也不怎么样<br/>
+不过购物的人还是很多、<br/>
+毕竟大家的目标不一样咯</p>
+
+<p>时间也差不多了<br/>
+回酒店休息了、晚上还要出来呢、呵呵</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129681987210.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129682112408.jpg" alt=""/></p>
+
+<p>在酒店休息得七七八八、<br/>
+就再也按耐不住了、<br/>
+出去欣赏这个城市的夜景</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129682322078.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129682430074.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129682523617.jpg" alt=""/> </p>
+
+<p>传说中的龙城大药房、嘎嘎</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129682752986.jpg" alt=""/></p>
+
+<p>好像是某个明星来了、在签售<br/>
+回来的时候也经过这里、当时在下雨、人还是很多<br/>
+后面才知道、是Eason、远远的瞥见一眼</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129682997097.jpg" alt=""/></p>
+
+<p>漫无目的游走中、<br/>
+来到了重庆大厦前</p>
+
+<p>呆呆的看着它、浮想联翩<br/>
+凤梨、警察、自动扶梯<br/>
+还有阿May..</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129683167514.jpg" alt=""/></p>
+
+<p>这些人从哪冒出来的？都忘记了～<br/>
+不过记得去星光大道的路上可能遇见</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129683335606.jpg" alt=""/></p>
+
+<p>女神、众人仰望</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129683551671.jpg" alt=""/></p>
+
+<p>霓虹闪烁，波光粼粼<br/>
+这就是维港</p>
+
+<p>有点遗憾、没能看到幻彩咏香江激光的表演（每晚8点到8点15进行）</p>
+
+<p>行走了很长时间、外面开始下雨了<br/>
+顺着人流各自散了</p>
+
+<p>肚子也饿了<br/>
+随便找个了地方吃饭</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129684022761.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129684134338.jpg" alt=""/></p>
+
+<p>D4/2014-06-09<br/>
+路线：<br/>
+铜锣湾 -&gt; SOGO -&gt; 时代广场 -&gt; 星光大道 -&gt; 太平山</p>
+
+<p>旅行的时候、不论前一晚有多累、有多晚<br/>
+第二天仍旧可以早起、<br/>
+全身都充满干劲、嘿嘿～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129687793867.jpg" alt=""/></p>
+
+<p>清晨、香港</p>
+
+<p>没有鸟语花香<br/>
+没有老生吆喝<br/>
+一切都很安静</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129691876603.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129692001922.jpg" alt=""/></p>
+
+<p>翠华餐厅(尖沙咀店加拿芬道店)</p>
+
+<p>大概是8、9点多出门、<br/>
+先去翠华填饱肚子、<br/>
+点了鱼粉和冻奶茶</p>
+
+<p>然后去崇光百货SOGO<br/>
+他们是10点开始营业<br/>
+去的比较早、在外面等了一会儿</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129692190212.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129692329941.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129692449981.jpg" alt=""/></p>
+
+<p>白天跟晚上的感觉不一样<br/>
+不过待在这里<br/>
+会想起TVB里面的画面：</p>
+
+<p>双层巴士、<br/>
+繁体的匾牌、<br/>
+中英文的说明告示</p>
+
+<p>这里良好的交融着<br/>
+世界各地的文化<br/>
+让人感到惊奇和新颖</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129692682917.jpg" alt=""/></p>
+
+<p>照片能记录的东西<br/>
+实在是太少太少</p>
+
+<p>只有你身处在这里的街头<br/>
+才可以感受到不同</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129692905321.jpg" alt=""/></p>
+
+<p>时代广场<br/>
+距离SOGO比较近<br/>
+步行大概10min<br/>
+建筑很有特点<br/>
+一眼望去、就会觉得与众不同<br/>
+哈哈、有点恭维了</p>
+
+<p>不过、确实不错了</p>
+
+<p>要知道香港寸土寸金<br/>
+而且是在铜锣湾<br/>
+一个百货公司能有这么开阔<br/>
+真不是一般的土豪</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129693097226.jpg" alt=""/></p>
+
+<p>时代广场</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129693234047.jpg" alt=""/></p>
+
+<p>从时代广场出来，回了一趟酒店。<br/>
+然后去逛逛星光大道，<br/>
+毕竟在那里可以见到很多’明星’的 —— 手印<br/>
+呵呵～我也不能免俗</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129693359896.jpg" alt=""/></p>
+
+<p>天星码头</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129693521792.jpg" alt=""/></p>
+
+<p>靠近海港城的一角</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129693678831.jpg" alt=""/></p>
+
+<p>九龙铁路钟楼</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129693867849.jpg" alt=""/></p>
+
+<p>好像是香港文化中心、不太了解</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129694035530.jpg" alt=""/></p>
+
+<p>在星光大道<br/>
+遥望对面的是香港岛<br/>
+岛上楼宇林立<br/>
+著名的香港国际金融中心<br/>
+就位于彼岸</p>
+
+<p>有点遗憾<br/>
+这个地方没去<br/>
+虽然去机场的时候<br/>
+是在这里转机场快线<br/>
+但中环没有好好走过</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129694226721.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129694352502.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129694493062.jpg" alt=""/> </p>
+
+<p>星光大道</p>
+
+<p>李小龙～<br/>
+功夫之王、有蛮多传奇<br/>
+至今还留有很多故事和记录</p>
+
+<p>创建了截拳道、实战技击术<br/>
+没有花拳绣腿</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129694696961.jpg" alt=""/></p>
+
+<p>星光大道</p>
+
+<p>暮色降临的时候<br/>
+来到太平山</p>
+
+<p>路线：<br/>
+地铁到中环 -&gt; 坐15路上太平山<br/>
+也有说坐15C、然后可以坐缆车上山<br/>
+不过、不知道在哪坐15C</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129694830956.jpg" alt=""/></p>
+
+<p>香港太平山顶</p>
+
+<p>上去凌霄阁拍了些照片<br/>
+有点糊、人很多、取景的位置不好找</p>
+
+<p>上面还有收费的取景位置<br/>
+地方不大、大概逗留了一小会<br/>
+就准备下山了</p>
+
+<p>D5/2014-06-10<br/>
+路线：<br/>
+海洋公园<br/>
+这是最累最开心的一天<br/>
+里面很多好玩的项目、<br/>
+基本都有尝试</p>
+
+<p>可惜时间有限、还有很多没体验</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695040149.jpg" alt=""/></p>
+
+<p>香港海洋公园</p>
+
+<p>海洋公园大门处</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695209099.jpg" alt=""/></p>
+
+<p>香港海洋公园</p>
+
+<p>进去后有一个蛮大的喷泉</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695336220.jpg" alt=""/></p>
+
+<p>香港海洋公园</p>
+
+<p>海洋奇观<br/>
+太多东西不认识了<br/>
+一路上走走停停</p>
+
+<p>已经没有童趣了<br/>
+好想快点结束。。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695519339.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695642307.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695734966.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695840177.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129695969604.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129696073337.jpg" alt=""/></p>
+
+<p>香港赛马会<br/>
+四川奇珍馆</p>
+
+<p>这货就一直在吃<br/>
+根本懒得理我们</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129696666848.jpg" alt=""/></p>
+
+<p>旋转得木马、是这样吧？</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129696821852.jpg" alt=""/></p>
+
+<p>登山缆车<br/>
+排了很长的队伍<br/>
+从这里去动感天地</p>
+
+<p>动感天地娱乐设施比较多</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129697566772.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129697055059.jpg" alt=""/></p>
+
+<p>坐缆车上山有一段距离<br/>
+旁边是大海<br/>
+海风吹来很凉快<br/>
+但感觉、缆车也在摇晃…</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129697223617.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129697864264.jpg" alt=""/></p>
+
+<p>超速旋风</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129698034095.jpg" alt=""/></p>
+
+<p>翻天覆地</p>
+
+<p>一下缆车、就被眼前的这些、吸引住了<br/>
+顿时来了精神<br/>
+急不可耐的奔了过去</p>
+
+<p>今天还好不是周末<br/>
+所以排队的人并不多</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129698198166.jpg" alt=""/></p>
+
+<p>北极之旅<br/>
+天气越发的热起来了<br/>
+所以决定去看企鹅<br/>
+顺便凉快凉快～</p>
+
+<p>这里的企鹅都挺活泼的<br/>
+不是贪吃的主</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129698368973.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129698550983.jpg" alt=""/> </p>
+
+<p>发现它们很有意思：<br/>
+笔直的站着<br/>
+像雕塑一般、凝视远处</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129698783292.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129698909851.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699010732.jpg" alt=""/> </p>
+
+<p>动感快车</p>
+
+<p>这个应该是最刺激的项目了<br/>
+排队的人很少、中途还有人退出<br/>
+反正后面wo... 坚持了...才怪<br/>
+haha~~</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699186469.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699278348.jpg" alt=""/></p>
+
+<p>摩天巨轮</p>
+
+<p>还蛮高的、在上面待了蛮久<br/>
+玩也很累的<br/>
+坐在上面看风景也挺惬意～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699461119.jpg" alt=""/></p>
+
+<p>海洋剧场<br/>
+非常棒的海豚表演<br/>
+还有海狮</p>
+
+<p>来看表演的人很多<br/>
+我们是提前来、<br/>
+所以有座位</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699667335.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699755675.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699843149.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129699928580.jpg" alt=""/></p>
+
+<p>现场有互动的环节<br/>
+可以直接跟它们接触</p>
+
+<p>整个表演精彩、趣味十足</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129700162314.jpg" alt=""/></p>
+
+<p>D6/2014-06-11<br/>
+路线：<br/>
+（香港）信德中心 -&gt; 澳门 -&gt; 威尼斯 -&gt; 大三巴牌坊<br/>
+一般想去澳门的人、都懂</p>
+
+<p>因为带着相机、所以没进去<br/>
+在威尼斯逛了逛、然后去了大三巴牌坊</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129700352861.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129700446184.jpg" alt=""/></p>
+
+<p>澳门威尼斯人度假村酒店</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129700556661.jpg" alt=""/></p>
+
+<p>威尼斯人</p>
+
+<p>很有特色的游船<br/>
+水面看起来很舒服</p>
+
+<p>淡淡的蓝<br/>
+像海洋一样<br/>
+像天空一样</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701136321.jpg" alt=""/></p>
+
+<p>澳门威尼斯人度假村酒店</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701231845.jpg" alt=""/></p>
+
+<p>澳门威尼斯人度假村酒店</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701358386.jpg" alt=""/></p>
+
+<p>澳门一隅</p>
+
+<p>有中式简单的小径<br/>
+也有葡萄牙式的现代建筑</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701508054.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701593897.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701677225.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701761937.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129701858206.jpg" alt=""/></p>
+
+<p>大三巴牌坊</p>
+
+<p>很有艺术气息、<br/>
+应该是浮雕吧、规模比较大</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702055318.jpg" alt=""/></p>
+
+<p>大三巴牌坊</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702151724.jpg" alt=""/></p>
+
+<p>这个人、初次见面、哈哈<br/>
+还以为是李时珍、后面发觉不妥<br/>
+有点不搭架啊～冒汗～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702281680.jpg" alt=""/></p>
+
+<p>牌坊旁边的一小块绿地</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702404832.jpg" alt=""/></p>
+
+<p>人头攒动</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702550189.jpg" alt=""/></p>
+
+<p>特意拍了一张、不知道是做什么的、<br/>
+不太敢相信、这个地方还有庙</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702689650.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129702824604.jpg" alt=""/></p>
+
+<p>等人、随便拍了些</p>
+
+<p>感觉拍出来的光线不对劲<br/>
+可惜只会自动档～叹气～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703050418.jpg" alt=""/></p>
+
+<p>去完这些地方<br/>
+就在这边购物逛街、<br/>
+买了一副墨镜、牺牲了不少大洋<br/>
+在HK都没花这么多<br/>
+尼玛、都怪CNY太坚挺了、<br/>
+让ou有种飘飘然的感觉～～</p>
+
+<p>夜里回到香港、<br/>
+扛不住夜色生香、<br/>
+狠狠的腐败了一回</p>
+
+<p>记得当时我还发微信说，<br/>
+东西很便宜～<br/>
+结账的时候才发现..<br/>
+流汗～</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703211404.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703318192.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703392109.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703469843.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703558506.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703677861.jpg" alt=""/></p>
+
+<p>本来这次港澳游<br/>
+是做了美食攻略<br/>
+可是时间上来不及<br/>
+所以基本是放弃了</p>
+
+<p>蛮多东西都没尝试<br/>
+残念ですが</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129703890001.jpg" alt=""/></p>
+
+<p>铜锣湾</p>
+
+<p>夜里的铜锣湾、<br/>
+依旧是灯火通明、<br/>
+各色路人络绎不绝</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129704039854.jpg" alt=""/></p>
+
+<p>回到酒店（如心南湾海景酒店）已经很晚了<br/>
+路线：<br/>
+铜锣湾坐38路双层大巴 -&gt; 黄竹坑道</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129704221594.jpg" alt=""/></p>
+
+<p>香港如心南湾海景酒店</p>
+
+<p>酒店硬件设施不错、<br/>
+房间也比较大</p>
+
+<p>白天有免费班车可以去中环<br/>
+离海洋公园很近、10min左右</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129704410225.jpg" alt=""/></p>
+
+<p>香港如心南湾海景酒店</p>
+
+<p>2014-06-12<br/>
+路线：<br/>
+酒店 -&gt; 香港机场（又名赤腊角国际机场）<br/>
+今天是离开的日子<br/>
+是这次旅行的结束</p>
+
+<p>一大早就起床了<br/>
+赶第一趟去中环的班车</p>
+
+<p>在那坐机场快线<br/>
+大概需要花费30min<br/>
+就可以到达机场</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129704569819.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129704681230.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129704812718.jpg" alt=""/></p>
+
+<p>香港机场很大<br/>
+功能区域划分很完善<br/>
+指示牌、标识很清楚</p>
+
+<p>几乎没有去找工作人员<br/>
+我就能找到自己的登机口<br/>
+以及查看到登机信息</p>
+
+<p>里面有很多品牌店<br/>
+食品、服装<br/>
+书籍、珠宝<br/>
+样样俱全<br/>
+让你感觉走进了商场一样</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705040474.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705152627.jpg" alt=""/></p>
+
+<p>香港国际机场</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705282268.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705360736.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705434008.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705556778.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705644511.jpg" alt=""/></p>
+
+<p>香港国际机场</p>
+
+<p>飞机大概是14:30左右启航、晚点一个钟<br/>
+途中遇到一个香港的工作人员<br/>
+据她说，大陆航班经常晚点</p>
+
+<p>当时感觉有点不可思议<br/>
+不过现在想想、应该是这样</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705805517.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705901305.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129705983799.jpg" alt=""/></p>
+
+<p>这次的旅行终于完满告一段落。<br/>
+中间收获良多，是自己最满意的一次。</p>
+
+<p>稍后、我会把行程中各类流程图贴出来。<br/>
+供其他旅人参考、如果有疑问也可以留言。</p>
+
+<p>Mindmap/Tourism-港澳深:</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15129706207140.jpg" alt=""/></p>
+
+<p>购物心得：<br/>
+这次去旅行主要是游玩为主。当然看到合适的、也不会放过、<br/>
+而且在港澳买东西可以享受到汇率带来的折扣、<br/>
+不过、真心对东荟城感到失望。<br/>
+最早在网上看到很多人说去东荟城购物、因为去昂坪、所以出来后去逛了逛、<br/>
+大部分卖场是 outlet、然后去看看里面的东西、发现不止款式少还out、<br/>
+...额、可人还不少，很多人拖着箱子来购物的、冒汗～</p>
+
+<p>海港城、很不错。不过、消费也不一般、<br/>
+里面超级大、迷路了好几次、不过服务很完善、有电子咨询台（可以视频对话）<br/>
+旁边是星光大道、天星码头，可以坐在一个靠窗的位置、欣赏维港湾景</p>
+
+<p>SOGO、时代广场，还行。跟北上广深的商场差不多，当然吊牌币种不一样、haha～<br/>
+单品（LEE）跟大陆差不多、款式都一样、其他品牌不了解</p>
+
+<p>唯一让我感到感慨的、估计是化妆品了（可惜我用不上）<br/>
+记得在澳门的时候、也有个八佰伴、里面促销、化妆品折扣很低<br/>
+结果是、排队进场，进去里面、全是排队埋单的、货架好像都空了、拜服－－！<br/>
+其他、暂时好像没想起来、有了就会补充进来～谢谢～</p>
+
+<p>2014-07-01 20:55<br/>
+旺角的夜市很丰富、吃喝玩乐都有、而且营业时间比较长<br/>
+推荐路线：<br/>
+太子 -&gt; 旺角 -&gt; 油麻地</p>
 
                         
                       </div>
@@ -490,10 +1240,10 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
                 <div class="read-more clearfix">
                   <div class="more-left left">
                   
-                    <span class="date">2017/11/24</span>
+                    <span class="date">2018/1/13</span>
                     <span>posted in&nbsp;</span> 
           				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          					    <span class="posted-in"><a href='%E8%B5%B0%E8%B5%B0%E7%9C%8B%E7%9C%8B.html'>走走看看</a></span>
           				   
                   </div>
                   <div class="more-right right">
@@ -507,40 +1257,1777 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
               </div><!-- article -->
         
 			<div class="article">
-                <a class="clearlink" href="15114982991851.html">
+                <a class="clearlink" href="15129614948470.html">
                 
-                  <h1>聊聊 WeChat，撩个咪</h1>
+                  <h1>Hero Emblems 攻略</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<p>不务正业的标题下隐藏着，一颗专业，正直的心。</p>
+                        	<ul>
+<li>
+<a href="#toc_0">写在开头</a>
+</li>
+<li>
+<a href="#toc_1">故事开始</a>
+</li>
+<li>
+<a href="#toc_2">罗德村</a>
+</li>
+<li>
+<a href="#toc_3">幽暗坟场</a>
+</li>
+<li>
+<a href="#toc_4">水晶洞窟</a>
+</li>
+<li>
+<a href="#toc_5">被遗忘的树林</a>
+</li>
+<li>
+<a href="#toc_6">漆黑的枯林</a>
+</li>
+<li>
+<a href="#toc_7">古代碉堡</a>
+</li>
+<li>
+<a href="#toc_8">遗迹小岛</a>
+</li>
+<li>
+<a href="#toc_9">萨亚拉城堡Part.1</a>
+</li>
+<li>
+<a href="#toc_10">神秘塔</a>
+</li>
+<li>
+<a href="#toc_11">洛西亚镇</a>
+</li>
+<li>
+<a href="#toc_12">洛西亚港口</a>
+</li>
+<li>
+<a href="#toc_13">南方墓园</a>
+</li>
+<li>
+<a href="#toc_14">库洛依德镇</a>
+</li>
+<li>
+<a href="#toc_15">女巫的家</a>
+</li>
+<li>
+<a href="#toc_16">恶鬼森林</a>
+</li>
+<li>
+<a href="#toc_17">迷幻的洞窟</a>
+</li>
+<li>
+<a href="#toc_18">利利魔小村</a>
+</li>
+<li>
+<a href="#toc_19">岩区遭遇战</a>
+</li>
+<li>
+<a href="#toc_20">岩区</a>
+</li>
+<li>
+<a href="#toc_21">虚无的荒野</a>
+</li>
+<li>
+<a href="#toc_22">贫瘠的高台</a>
+</li>
+<li>
+<a href="#toc_23">拯救艾咪</a>
+</li>
+<li>
+<a href="#toc_24">古代迷宫</a>
+</li>
+<li>
+<a href="#toc_25">桑塔克诗村</a>
+</li>
+<li>
+<a href="#toc_26">海贼的窝</a>
+</li>
+<li>
+<a href="#toc_27">卡波亚海域</a>
+</li>
+<li>
+<a href="#toc_28">蔚蓝海岸</a>
+</li>
+<li>
+<a href="#toc_29">死亡森林</a>
+</li>
+<li>
+<a href="#toc_30">先人墓穴</a>
+</li>
+<li>
+<a href="#toc_31">诸神的遗迹</a>
+</li>
+<li>
+<a href="#toc_32">湖畔</a>
+</li>
+<li>
+<a href="#toc_33">海神遗迹</a>
+</li>
+<li>
+<a href="#toc_34">海螺洞窟</a>
+</li>
+<li>
+<a href="#toc_35">神族的高塔</a>
+</li>
+<li>
+<a href="#toc_36">格鲁格村</a>
+</li>
+<li>
+<a href="#toc_37">恶魔坟场</a>
+</li>
+<li>
+<a href="#toc_38">古代陵墓</a>
+</li>
+<li>
+<a href="#toc_39">加鲁德的家</a>
+</li>
+<li>
+<a href="#toc_40">魔鬼的洞窟Part.1</a>
+</li>
+<li>
+<a href="#toc_41">海上小屋</a>
+</li>
+<li>
+<a href="#toc_42">神祕小屋</a>
+</li>
+<li>
+<a href="#toc_43">贤者之屋</a>
+</li>
+<li>
+<a href="#toc_44">萨亚拉城堡Part.2</a>
+</li>
+<li>
+<a href="#toc_45">魔鬼的洞窟Part.2</a>
+</li>
+<li>
+<a href="#toc_46">风之高台</a>
+</li>
+<li>
+<a href="#toc_47">小屋-隐藏商店</a>
+</li>
+<li>
+<a href="#toc_48">黑夜宫殿</a>
+</li>
+<li>
+<a href="#toc_49">圣火遗迹</a>
+</li>
+<li>
+<a href="#toc_50">魔法宫殿</a>
+</li>
+<li>
+<a href="#toc_51">龙王庙</a>
+</li>
+<li>
+<a href="#toc_52">天使圣殿</a>
+</li>
+<li>
+<a href="#toc_53">漆黑之岛-魔界塔</a>
+</li>
+<li>
+<a href="#toc_54">写在最后</a>
+</li>
+<li>
+<a href="#toc_55">参考</a>
+</li>
+</ul>
 
-<p>WeChat 发展到今天这个规模，有点让人吃惊，不论未来如何，我们都要抓住眼前的机会：搭载这艘战舰，乘风破浪前行。</p>
 
-<h2 id="toc_0">除了有个好爹，还碰上了好时运</h2>
+<p>第一目，漆黑之岛打不过去了。魔界塔共有20F。R6 少拿一个，痛。</p>
 
-<p>在谈 WeChat 之前，不得不提一个事情，移动互联网的浪潮下 H5 应用蓬勃发展。在这个大趋势大浪潮下，孕育了很多新机会，也创造了更多的崛起机会。</p>
+<p>第二目，选择专家模式。目前还在行进ing。</p>
 
-<p>WeChat 之所以能发展到今天这个规模，无非以下几点：</p>
+<p>整个游戏很精致，玩了2遍。剧情丰富，还有隐藏的剧情需要玩家自己去发掘，Game Center 中有对应的5个隐藏成就。</p>
 
-<ol>
-<li>移动互联网浪潮，H5 应用数量和规模。</li>
-<li>适应快速发展的市场需求：迅速，便捷，灵活。</li>
-<li>较低开发成本。</li>
-</ol>
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T060234.jpg" alt="Image"/></p>
 
-<p>众所周知，大树底下好乘凉，有腾讯这个亲爸。做什么事情，都事半功倍。</p>
+<h2 id="toc_0">写在开头</h2>
 
-<h2 id="toc_1">在 WeChat 里，我们都可以做什么</h2>
+<blockquote>
+<p>声明：本文参考了多篇网文，同时结合自己对游戏的理解，写下了以下内容。 如果对此有疑问可以跟我联系。</p>
+</blockquote>
 
-<p>wechat 背景</p>
+<p>这个游戏有多个结局，第一次玩可以随心所欲，不推荐查看攻略，<br/>
+以免影响游戏体验、探索和乐趣。</p>
 
-<p>wechat 可以做到什么</p>
+<p><strong>岔口提示</strong></p>
 
-<p>如何善用 wechat</p>
+<p>有些关卡如果一直选 A 会不断循环，<br/>
+如果选 B 就没这个问题，虽然不是最佳捷径，但能通过。</p>
 
-<p>重定向地址，微信回调，openid，加签验签</p>
+<p><strong>掉落提示</strong></p>
+
+<p>技能、纹章掉落是固定的，<br/>
+会逃跑的箱子，多数藏有技能、纹章！</p>
+
+<p><strong>小矮人的秘密</strong></p>
+
+<p>小矮人不只会喷道具和钱，也会喷技能，<br/>
+尤其是那些躲在怪物后方，且步数为 (2) 的！<br/>
+诀窍为，在限制步数内对小矮人造成 2Hits 以上伤害。</p>
+
+<p><strong>一些心得</strong></p>
+
+<p>前期金币少，有些关卡可以重复刷，特别是有箱子的关卡。</p>
+
+<p>去目标地点时，会遇到遭遇战，<br/>
+可以隔一段时间重新确认目标地点，这样可以避免遭遇战。</p>
+
+<p>整个游戏前期BOSS都不是很厉害，基本没免疫，但可以格挡，减少伤害。后期的BOSS就会出现免疫能力，普通攻击或某项属性攻击无效。</p>
+
+<p>在BOSS血量较少的情况下要特别小心，很有可能出现连击和大量伤害，直接造成我方Over。建议后期使用复活技能，能大大提高生存能力。</p>
+
+<h2 id="toc_1">故事开始</h2>
+
+<p>国王病重，大贤者建议去寻找天空琉璃。<br/>
+公主冒冒失失冲出了皇宫，被红色恶魔抓住，皇冠掉落了。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T050808.jpg" alt=""/></p>
+
+<p>翠丝特是一个小财迷，捡起皇冠，欢喜不已。<br/>
+霍华德一行人营救去营救公主。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T050903.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T051708.jpg" alt=""/></p>
+
+<blockquote>
+<p>note：得到皇冠，后期能派上用场，先卖个关子。</p>
+</blockquote>
+
+<h2 id="toc_2">罗德村</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T052719.jpg" alt=""/></p>
+
+<p>遭遇村长被魔物追袭，霍华德一行人将其救下，并淮备消灭村里的魔物。</p>
+
+<blockquote>
+<p>note：与村长有对话，随便选吧，总之要打魔物。</p>
+</blockquote>
+
+<p><strong>纹章</strong> <em>R2</em></p>
+
+<table>
+<thead>
+<tr>
+<th>蛮刀之纹章</th>
+<th>钢铁之纹章</th>
+<th>大魔导之纹章</th>
+<th>辟邪之纹章</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$300</td>
+<td>$300</td>
+<td>$300</td>
+<td>$300</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>技能</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>毒剑</th>
+<th>炙焰击</th>
+<th>电击术</th>
+<th>净化术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$200</td>
+<td>$200</td>
+<td>$200</td>
+<td>$200</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>道具</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>治疗HP250</th>
+<th>防护DP250</th>
+<th>十字架(低阶x4)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$20</td>
+<td>$15</td>
+<td>$50</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_3">幽暗坟场</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>1 --&gt; 2 --&gt; 3 --&gt; 4 红箱(8) --&gt; 5 --&gt; 6 --&gt; 7 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>红箱：技能 (翠丝特-淨化术)</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T055435.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：无</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_4">水晶洞窟</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>水晶矿区 1 --&gt; 2茶箱(8) --&gt; 3 A | B</p>
+
+<p>废弃矿区(A) 1 --&gt; 2 --&gt; 3 小矮人(2) --&gt; 4 巢穴</p>
+
+<p>洞窟湖区(B) 1 --&gt; 2 --&gt; 3 蓝箱(8) --&gt; 4 巢穴</p>
+
+<p>恶魔巢穴 1 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>茶箱：道具/$$</p>
+
+<p>蓝箱：技能 (艾尔莎-冰冻术)</p>
+
+<p>小矮人：单独出现！</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T111015.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：无</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_5">被遗忘的树林</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T060603.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 茶箱(8)</p>
+
+<p><strong>物品：</strong></p>
+
+<p>茶箱：太阳石板</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T111131.jpg" alt=""/></p>
+
+<h2 id="toc_6">漆黑的枯林</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T061117.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 茶箱(8)</p>
+
+<p><strong>物品：</strong></p>
+
+<p>茶箱：月亮石板</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T085031.jpg" alt=""/></p>
+
+<h2 id="toc_7">古代碉堡</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T111435.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T111450.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T111522.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>碉堡1F 1 --&gt; 2 --&gt; 3茶箱(8)茶箱(8) --&gt; 4 --&gt; 5小矮人(1) 2F</p>
+
+<p>碉堡2F 1 --&gt; 2 --&gt; 3茶箱(8)蓝箱(8) --&gt; 4 --&gt; 5小矮人(2) 3F</p>
+
+<p>碉堡3F 1 --&gt; 2 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>1F 茶箱：道具/$$</p>
+
+<p>1F 茶箱：道具/$$</p>
+
+<p>2F 茶箱：道具/$$</p>
+
+<p>2F 蓝箱：S技能 (奥斯顿-天使的守护)</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T082955.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：连续攻击2次(血量较少时)</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：迷之红水晶</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T112706.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T120307.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T120330.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T120342.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T120353.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T122021.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T122046.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T122103.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-09T122112.jpg" alt=""/></p>
+
+<h2 id="toc_8">遗迹小岛</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T073930.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>湖畔 1 --&gt; 2 --&gt; 3 A | B</p>
+
+<p>遗迹(A) 1 --&gt; 2 --&gt; 3 --&gt; 4 A 湖畔 | B 遗迹深处</p>
+
+<p>迷雾区(B) 1 --&gt; 2 --&gt; 3 湖畔</p>
+
+<p>遗迹深处 1 --&gt; 2 --&gt; 3 --&gt; 4</p>
+
+<p>这个关口小心迷路</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T074204.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T074215.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075239.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075313.jpg" alt=""/></p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong><br/>
+技能：无</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：天空琉璃</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075329.jpg" alt=""/></p>
+
+<h2 id="toc_9">萨亚拉城堡Part.1</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075403.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>迴廊 1 --&gt; 2 --&gt; 3A --&gt; B4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p>宝物库(A) 1小矮人(2)茶箱(8) --&gt; 2迴廊 4/6茶箱(8)蓝箱(8)</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075511.jpg" alt=""/></p>
+
+<p><strong>物品：</strong></p>
+
+<p>1/2 茶箱：道具/$$</p>
+
+<p>2/2 茶箱：道具/$$</p>
+
+<p>2/2 蓝箱：技能 (霍华德-雷鸣斩)</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075538.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：锁链串 (纵向一整排)</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T075614.jpg" alt=""/></p>
+
+<h2 id="toc_10">神秘塔</h2>
+
+<p>去往神秘塔的路上会遭遇几次小战役。</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T082658.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T082708.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T082719.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>高塔1F 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 A | B</p>
+
+<p>高塔2F-东侧(A) 1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(8) --&gt; 5 3F</p>
+
+<p>高塔2F-西侧(B) 1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(8)茶箱(8) --&gt; 5 3F</p>
+
+<p>高塔3F 1 --&gt; 2小矮人(2) --&gt; 3 --&gt; 4 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>东侧-蓝箱：S技能 (艾尔莎-毒雾)</p>
+
+<p>茶箱：道具/$$</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T095207.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：燃烧2x2</p>
+
+<p>免疫：普攻</p>
+
+<p>格挡：有</p>
+
+<p>弱点：电、冰、火</p>
+
+<p>物品：无</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T170710.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T170940.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T170953.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171004.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171019.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171031.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171043.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171142.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171155.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171226.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T171240.jpg" alt=""/></p>
+
+<h2 id="toc_11">洛西亚镇</h2>
+
+<p><img src="media/15127521594693/figure_2017-02-12T171416.jpg" alt=""/></p>
+
+<p><strong>纹章</strong> <em>R3</em></p>
+
+<table>
+<thead>
+<tr>
+<th>蛮刀之纹章</th>
+<th>钢铁之纹章</th>
+<th>大魔导之纹章</th>
+<th>辟邪之纹章</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>技能</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>雷鸣斩</th>
+<th>炙焰击</th>
+<th>冰冻术</th>
+<th>增幅术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$400</td>
+<td>$400</td>
+<td>$400</td>
+<td>$400</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>道具</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>治疗HP250</th>
+<th>防护DP250</th>
+<th>十字架(低阶x4)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$20</td>
+<td>$15</td>
+<td>$50</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_12">洛西亚港口</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T173024.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T173034.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T173042.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T173052.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T173103.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T173204.jpg" alt=""/></p>
+
+<h2 id="toc_13">南方墓园</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T172928.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>坟墓区 1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(6) --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-13T104906.jpg" alt=""/></p>
+
+<p><strong>物品：</strong></p>
+
+<p>蓝箱：技能 (奥斯顿-粉碎一击)</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T172827.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：燃烧</p>
+
+<p>免疫：普攻</p>
+
+<p>格挡：有</p>
+
+<p>弱点：冰</p>
+
+<p>物品：罗盘</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-12T172855.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-13T104817.jpg" alt=""/></p>
+
+<h2 id="toc_14">库洛依德镇</h2>
+
+<p><strong>纹章</strong> <em>R3</em></p>
+
+<table>
+<thead>
+<tr>
+<th>蛮刀之纹章</th>
+<th>钢铁之纹章</th>
+<th>大魔导之纹章</th>
+<th>辟邪之纹章</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>技能</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>雷鸣斩</th>
+<th>粉碎一击</th>
+<th>缩小术</th>
+<th>增幅术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$400</td>
+<td>$500</td>
+<td>$500</td>
+<td>$400</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>道具</strong></p>
+
+<p>| 治疗HP250 | 强力治疗HP1000 | 防护DP250 | 强力防护DP1000 | 十字架(低阶x4) | 银十字架(低阶x8) |<br/>
+| ------------- | ------------- | ------------- |<br/>
+| \(20 | \)200 | \(15 | \)150 | \(50 | \)300 |</p>
+
+<h2 id="toc_15">女巫的家</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林入口 1 --&gt; 2A --&gt; 3B小矮人(2) --&gt; 4 家</p>
+
+<p>森林深处(A) 1 --&gt;  2 --&gt; 3蓝箱(6) --&gt;  4 家</p>
+
+<p>女巫的家 1 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>蓝箱：纹章 (艾尔莎 R3 审判之纹章)</p>
+
+<p>小矮人：技能 (艾尔莎-混乱术)</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-14T140215.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-14T140004.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-14T140035.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong><br/>
+技能：冰晶 (倒数完毕冻结周围)</p>
+
+<p>免疫：普攻</p>
+
+<p>格挡：有</p>
+
+<p>弱点：冰、电</p>
+
+<p>物品：无</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-14T140121.jpg" alt=""/></p>
+
+<h2 id="toc_16">恶鬼森林</h2>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-15T041818.jpg" alt=""/></p>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林入口 1 --&gt; 2 --&gt; 3 --&gt; 4 A | B</p>
+
+<p>森林湖畔(A) 1 --&gt; 2小BOSS --&gt; 3蓝箱(6) --&gt; 4蓝箱(6) 巢穴</p>
+
+<p>废弃遗址(B) 1 --&gt; 2蓝箱(6) --&gt; 3 --&gt; 4 巢穴</p>
+
+<p>哥布林巢穴 1 --&gt; 2 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>A 蓝箱：S技能 (霍华德-强夺)</p>
+
+<p>B 蓝箱：道具/$$</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-15T041513.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-15T041637.jpg" alt=""/></p>
+
+<p><strong>小BOSS</strong></p>
+
+<p>技能：锁链串</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-15T041721.jpg" alt=""/></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：炸弹x2</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：无</p>
+
+<p>物品：无</p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-15T041654.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/figure_2017-02-15T041710.jpg" alt=""/></p>
+
+<h2 id="toc_17">迷幻的洞窟</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>洞穴入口 1 --&gt; 2 --&gt; 3 --&gt; 4 A | B</p>
+
+<p>洞窟湖区(A) 1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(6) 深处</p>
+
+<p>蘑菇园(B) 1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(6) 深处</p>
+
+<p>洞窟深处 1 --&gt; 2 --&gt; 3 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>A 蓝箱：S技能 (艾尔莎-雷电之门)</p>
+
+<p>B 蓝箱：道具/$$</p>
+
+<p>BOSS：魔幻香菇</p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：燃烧、火之核 (倒数完毕扩散燃烧)</p>
+
+<p>免疫：火</p>
+
+<p>格挡：有</p>
+
+<p>弱点：冰</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_18">利利魔小村</h2>
+
+<p><strong>纹章</strong> <em>R4</em></p>
+
+<table>
+<thead>
+<tr>
+<th>蛮刀之纹章</th>
+<th>钢铁之纹章</th>
+<th>大魔导之纹章</th>
+<th>辟邪之纹章</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$4000</td>
+<td>$4000</td>
+<td>$4000</td>
+<td>$4000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>技能</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>吸血剑</th>
+<th>大圣盾</th>
+<th>混乱术</th>
+<th>中恢复术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$1000</td>
+<td>$1000</td>
+<td>$1000</td>
+<td>$1000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>道具</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>治疗HP250</th>
+<th>强力治疗HP1000</th>
+<th>防护DP250</th>
+<th>强力防护DP1000</th>
+<th>十字架(低阶x4)</th>
+<th>银十字架(低阶x8)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$20</td>
+<td>$200</td>
+<td>$15</td>
+<td>$150</td>
+<td>$50</td>
+<td>$300</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_19">岩区遭遇战</h2>
+
+<p><strong>物品：</strong></p>
+
+<p>小矮人：技能 (奥斯顿-强寒冰击)</p>
+
+<p><em>※ 使用「强夺」可以从 BOSS 身上盗取纹章 (霍华德 R4 秘银剑之纹章)</em></p>
+
+<h2 id="toc_20">岩区</h2>
+
+<p><strong>物品：</strong></p>
+
+<p>野生小矮人也会喷 (奥斯顿-强寒冰击)！</p>
+
+<h2 id="toc_21">虚无的荒野</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>荒野 1 --&gt; 2 --&gt; 3 --&gt; 4A --&gt; B5 --&gt; 6 --&gt; 7 BOSS</p>
+
+<p>(A) 坟墓区 1 --&gt; 2 --&gt; 3蓝箱(6) --&gt; 4 荒野6/7</p>
+
+<p><strong>物品：</strong></p>
+
+<p>蓝箱：技能 (霍华德-吸血剑)</p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒、毒蜘蛛x3 (范围毒)</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：无</p>
+
+<p>物品：萤光虫的翅膀</p>
+
+<h2 id="toc_22">贫瘠的高台</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>高台 1 --&gt; 2 --&gt; 3--&gt; --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>小矮人：S技能 (奥斯顿-寒冰光束)</p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：陨石术、X锁链</p>
+
+<p>免疫：火、电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：无</p>
+
+<p>物品：爆裂矿石</p>
+
+<h2 id="toc_23">拯救艾咪</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(6) --&gt; 5 --&gt; 6</p>
+
+<p><strong>物品：</strong></p>
+
+<p>蓝箱：纹章 (翠丝特 R4 幸福之纹章)</p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：无</p>
+
+<p>免疫：无</p>
+
+<p>格挡：有</p>
+
+<p>弱点：无</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_24">古代迷宫</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>B1-长廊　　 1 --&gt; 2 --&gt; 3  通道</p>
+
+<p>B2-通道　　 1 --&gt; 2A --&gt; B3 --&gt; 4 大厅 1/5</p>
+
+<p>(A) B2-牢房  1 --&gt; 2 --&gt; 3蓝箱(8)蓝箱(6) --&gt; 4 大厅 3/5</p>
+
+<p>B3-大厅　　 1 --&gt; 2A<em>小矮人(2) --&gt; B</em>3 --&gt; 4蓝箱(8) --&gt; 5 BOSS</p>
+
+<p>(A*) B2-迴廊 1 --&gt; 2蓝箱(8) --&gt; 3 --&gt; 4 通道 3/4</p>
+
+<p><strong>物品：</strong></p>
+
+<p>B2 蓝箱(8)：道具/$$</p>
+
+<p>B2 蓝箱(6)：纹章 (艾尔莎 R5 炙炎之纹章)</p>
+
+<p>B3 蓝箱：道具/$$</p>
+
+<p>A* 蓝箱：道具/$$</p>
+
+<p>小矮人：S技能 (艾尔莎-北极大地)</p>
+
+<p><em>※ 使用「强夺」可以从 BOSS 身上盗取技能 (霍华德-重力剑)</em></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：场地伤害、燃烧、大冰冻x4</p>
+
+<p>免疫：普攻</p>
+
+<p>格挡：有</p>
+
+<p>弱点：无</p>
+
+<p>物品：迷之黄水晶</p>
+
+<h2 id="toc_25">桑塔克诗村</h2>
+
+<p><strong>纹章</strong> <em>R5</em></p>
+
+<table>
+<thead>
+<tr>
+<th>蛮刀之纹章</th>
+<th>钢铁之纹章</th>
+<th>大魔导之纹章</th>
+<th>辟邪之纹章</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$8000</td>
+<td>$8000</td>
+<td>$8000</td>
+<td>$8000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>技能</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>强雷鸣斩</th>
+<th>强炙焰击</th>
+<th>强闪电术</th>
+<th>自疗术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>道具</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>强力治疗HP1000</th>
+<th>强力防护DP1000</th>
+<th>银十字架(低阶x8)</th>
+<th>白银十字架(中阶x4)</th>
+<th>白金十字架(中阶x8)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$200</td>
+<td>$150</td>
+<td>$300</td>
+<td>$500</td>
+<td>$1200</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_26">海贼的窝</h2>
+
+<p><strong>关卡：</strong><br/>
+1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6蓝箱(6) BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><em>※ 击败 BOSS 后，再次探索会发现蓝箱：S技能 (霍华德-电光火石)</em></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：毒雾陷阱</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：无</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_27">卡波亚海域</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>船上甲板 1 --&gt; 2 --&gt; 3 --&gt; 4 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：冰冻、冰晶</p>
+
+<p>免疫：普攻、火、冰</p>
+
+<p>格挡：有</p>
+
+<p>弱点：电</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_28">蔚蓝海岸</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>海岸 1 --&gt; 2 --&gt; 3 --&gt; 4蓝箱(6) --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p>蓝箱：技能 (霍华德-重力剑)</p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：锁链x5</p>
+
+<p>免疫：普攻</p>
+
+<p>格挡：有</p>
+
+<p>弱点：电</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_29">死亡森林</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_30">先人墓穴</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_31">诸神的遗迹</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_32">湖畔</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_33">海神遗迹</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_34">海螺洞窟</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_35">神族的高塔</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_36">格鲁格村</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_37">恶魔坟场</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_38">古代陵墓</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_39">加鲁德的家</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_40">魔鬼的洞窟Part.1</h2>
+
+<p><strong>关卡：</strong><br/>
+森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_41">海上小屋</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_42">神祕小屋</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_43">贤者之屋</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_44">萨亚拉城堡Part.2</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_45">魔鬼的洞窟Part.2</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_46">风之高台</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_47">小屋-隐藏商店</h2>
+
+<p><strong>纹章</strong> <em>R3</em></p>
+
+<table>
+<thead>
+<tr>
+<th>蛮刀之纹章</th>
+<th>钢铁之纹章</th>
+<th>大魔导之纹章</th>
+<th>辟邪之纹章</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+<td>$2000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>技能</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>重力剑</th>
+<th>强寒冰击</th>
+<th>强寒冰击</th>
+<th>强化淨化术</th>
+<th>剧毒剑</th>
+<th>复活术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$5000</td>
+<td>$10000</td>
+<td>$10000</td>
+<td>$10000</td>
+<td>$10000</td>
+<td>$10000</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>道具</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>神奇治疗药水HP2000</th>
+<th>神奇防护药水DP1600</th>
+<th>强化综合药水(HP+DP)1000</th>
+<th>神奇综合药水(HP+DP)2000</th>
+<th>神圣十字架(高阶x4)</th>
+<th>万能十字架(高阶x8)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$1000</td>
+<td>$750</td>
+<td>$1200</td>
+<td>$8000</td>
+<td>$2500</td>
+<td>$6000</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_48">黑夜宫殿</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_49">圣火遗迹</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_50">魔法宫殿</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_51">龙王庙</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_52">天使圣殿</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_53">漆黑之岛-魔界塔</h2>
+
+<p><strong>关卡：</strong></p>
+
+<p>森林 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 BOSS</p>
+
+<p><strong>物品：</strong></p>
+
+<p><strong>BOSS</strong></p>
+
+<p>技能：施毒x3、毒蜘蛛x3</p>
+
+<p>免疫：电</p>
+
+<p>格挡：有</p>
+
+<p>弱点：火</p>
+
+<p>物品：无</p>
+
+<h2 id="toc_54">写在最后</h2>
+
+<p>玩了2遍感觉很不错，可能还会再玩一次。（这样就能完成所有成就）<br/>
+魔界塔有点BT，打了很久。</p>
+
+<h2 id="toc_55">参考</h2>
+
+<p><a href="http://www.18touch.com/yxwzgl1.html">Hero Emblems英雄纹章攻略 新手教程</a></p>
+
+<p><a href="http://www.18touch.com/yxwzgldq.html">Hero Emblems英雄纹章攻略全地图和新版R10纹章挑战副本关卡道具技能掉落大全</a></p>
+
+<p><a href="https://forum.gamer.com.tw/C.php?bsn=27690&amp;snA=38">【心得】Hero Emblems 全攻略！</a></p>
+
+<p><a href="http://www.chaptercheats.com/cheats/iphone-ipod/282979/Hero-Emblems-Cheats.htm">Hero Emblems Cheats for iPhone - iPad</a></p>
 
                         
                       </div>
@@ -549,10 +3036,10 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
                 <div class="read-more clearfix">
                   <div class="more-left left">
                   
-                    <span class="date">2017/11/24</span>
+                    <span class="date">2017/12/11</span>
                     <span>posted in&nbsp;</span> 
           				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          					    <span class="posted-in"><a href='%E9%97%B2%E6%83%85%E9%80%B8%E8%87%B4.html'>闲情逸致</a></span>
           				   
                   </div>
                   <div class="more-right right">
@@ -576,7 +3063,7 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
 			  </div>
 			  <div class="large-6 columns">
 			<p class="text-right" style="padding-top:25px;">
-			
+			 <a href="all_1.html">&raquo; Next Page</a> 
 			</p>
 			  </div>
 			</div>
@@ -618,6 +3105,12 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
       	<p class="cat-list">
         
             <a href="fe.html"><strong>FELike</strong></a>
+        
+            <a href="%E6%9E%9D%E6%9E%9D%E8%94%93%E8%94%93.html"><strong>枝枝蔓蔓</strong></a>
+        
+            <a href="%E8%B5%B0%E8%B5%B0%E7%9C%8B%E7%9C%8B.html"><strong>走走看看</strong></a>
+        
+            <a href="%E9%97%B2%E6%83%85%E9%80%B8%E8%87%B4.html"><strong>闲情逸致</strong></a>
          
         </p>
 
@@ -634,21 +3127,43 @@ git cz # 凡是用到git commit命令，一律改为使用 git cz
 	      
 		      
 			      <li class="post">
-			        <a href="15114998607619.html">我想跟你谈谈 Gitflow</a>
+			        <a href="15158351946987.html">「星球大战」赏析</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15114996077689.html">虽然只是个单页</a>
+			        <a href="15158349595582.html">港澳深自由行</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15114982991851.html">聊聊 WeChat，撩个咪</a>
+			        <a href="15129614948470.html">Hero Emblems 攻略</a>
 			      </li>
 		     
+		  
+		      
+			      <li class="post">
+			        <a href="15127517923715.html">Fast Configure Of Sublime Text</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15127462200707.html">Mac 下 iTerm2 实现 ssh 自动登录</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
 		   
 		  		</ul>
                 </div>
