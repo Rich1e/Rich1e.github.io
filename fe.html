@@ -105,6 +105,154 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15194902495465.html">
+                
+                  <h1>IntelliJ IDEA License Server 搭建</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>作为一枚 FEer，webstorm 应该是必备的开发利器了。它友好支持各个版本的JS语法（ES3/5/6/7），内置的调试工具以及 nodejs 支持都非常完整。</p>
+
+<p>Jetbrains 旗下软件更新挺快，几乎每一个热门 web 框架的集成和调试，都能得到很快的响应。这应该是我比较看重的一个点，其他软件虽然也可以做到，但需要自己手动配置和维护。</p>
+
+<h2 id="toc_0">下载安装包和使用</h2>
+
+<p><a href="https://mega.nz/#!2w5WBL7I!OhsaQHOaW_IsUznu5loN3a-bSbLV--McOBqA-PM8EuY">v1.5 下载</a>（需要FQ）</p>
+
+<blockquote>
+<p>原作者教程地址，<a href="http://blog.lanyus.com/archives/174.html%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%8D%E6%87%82%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9C%A8%E4%BD%9C%E8%80%85blog%E7%95%99%E8%A8%80%EF%BC%8C%E5%BE%88%E5%A4%9A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%EF%BC%8C%E5%9C%A8%E7%95%99%E8%A8%80%E5%8C%BA%E4%B9%9F%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%8C%E7%89%9B%E4%BA%BA%E8%BF%98%E6%98%AF%E4%B8%8D%E5%B0%91%E3%80%82">http://blog.lanyus.com/archives/174.html，如果有不懂的问题，可以在作者blog留言，很多常见问题，在留言区也可以看到解决方案，牛人还是不少。</a></p>
+</blockquote>
+
+<p>下载后有很多版本，如果你电脑是 windows，对应的使用 exe 后缀，Mac OS 使用 darwin 后缀。</p>
+
+<p>以下简述一下 Mac OS 的使用流程：</p>
+
+<ol>
+<li>cd 至IntelliJIDEALicenseServer目录</li>
+<li>修改权限，<code>chmod 777 ./IntelliJIDEALicenseServer_darwin_amd64</code></li>
+<li>查看命令，<code>./IntelliJIDEALicenseServer_darwin_amd64 -h</code><strong>（这个步骤可以忽略，但是对于从事技术的人还是建议看看，有帮助）</strong></li>
+<li>执行命令，<code>./IntelliJIDEALicenseServer_darwin_amd64 -p 端口号 -u 注册名</code></li>
+<li><p>在打开的 License Activation 窗口中选择 “License server” ，在输入框输入下面的网址：</p>
+
+<p><code>http://127.0.0.1:端口号</code></p>
+
+<p>点击：Activate 即可。</p></li>
+</ol>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15161715840907.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15161718522263.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15161702382131.jpg" alt=""/></p>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15161719346573.jpg" alt=""/></p>
+
+<h2 id="toc_1">本地搭建服务器</h2>
+
+<blockquote>
+<p>此为 Mac 下搭建方式。</p>
+</blockquote>
+
+<ol>
+<li><p>新建一个 <code>com.local.IntelliJIDEALicenseServerDarwinAmd64.plist</code> 文件</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+  &lt;dict&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;false/&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;com.local.IntelliJIDEALicenseServerDarwinAmd64&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;Your Path/IntelliJIDEALicenseServer/IntelliJIDEALicenseServer_darwin_amd64&lt;/string&gt;
+      &lt;string&gt;-l&lt;/string&gt;
+      &lt;string&gt;0.0.0.0(绑定的IP地址)&lt;/string&gt;
+      &lt;string&gt;-p&lt;/string&gt;
+      &lt;string&gt;1081(大于1024的端口号)&lt;/string&gt;
+      &lt;string&gt;-u&lt;/string&gt;
+      &lt;string&gt;Your Name(显示被激活的用户名)&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></li>
+<li><p>将文件文件放至 <code>~/Library/LaunchAgents/</code> 目录下。</p></li>
+<li><p>加载配置好的 <code>.plist</code> 文件:</p>
+
+<pre><code>launchctl load -w ~/Library/LaunchAgents/com.local.IntelliJIDEALicenseServerDarwinAmd64.plist
+</code></pre></li>
+</ol>
+
+<p>launchctl 命令</p>
+
+<pre><code># 加载一个服务到启动列表
+launchctl load -w ~/Library/LaunchAgents/your.plist 
+# 卸载一个服务
+launchctl unload  ~/Library/LaunchAgents/your.plist 
+# 停止
+launchctl stop &lt;&lt;Service Name&gt;&gt;
+# 开始
+launchctl start &lt;&lt;Service Name&gt;&gt;
+# 移除
+launchctl remove &lt;&lt;Service Name&gt;&gt;
+# kill
+launchctl kill &lt;&lt;Service Name&gt;&gt;
+# 查看所有服务
+launchctl list
+# 查看服务状态
+launchctl list | grep &lt;&lt;Service Name&gt;&gt;
+</code></pre>
+
+<p>其他一些有用的命令</p>
+
+<pre><code># 查看服务是否生效
+ps aux | grep &lt;&lt;Service Name&gt;&gt;
+# 查看 plist 格式是否正确
+plutil -lint com.local.IntelliJIDEALicenseServerDarwinAmd64.plist
+</code></pre>
+
+<p><img src="http://p06ki0wzp.bkt.clouddn.com/15194889645111.jpg" alt=""/></p>
+
+<h2 id="toc_2">参考</h2>
+
+<p><a href="http://blog.lanyus.com/archives/174.html">IntelliJ IDEA License Server 本地搭建教程</a></p>
+
+<p><a href="https://www.jianshu.com/p/caef0148c834">IntelliJ IDEA license server 服务器搭建</a></p>
+
+<p><a href="http://www.imsxm.com/2016/08/jetbrains-ide-active-server.html">五分钟搭建 Jetbrains 家族IDE授权服务器</a></p>
+
+<p><a href="https://huixisheng.github.io/MacOSX-powerboot/">MacOSX 开机启动</a></p>
+
+<p><a href="http://www.cnblogs.com/phpdragon/p/7437232.html">IntelliJ IDEA License Server 安装使用 Mac 篇</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/2/25</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15127517923715.html">
                 
                   <h1>Fast Configure Of Sublime Text</h1>
@@ -433,320 +581,6 @@ Sublime_diagram_plugin
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="15127431443661.html">
-                
-                  <h1>搬瓦工开启 TCP-BBR 加速</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>最近上网速度很卡，而且不太稳定，去查了一些资料，发现 TCP-BBR 可以加速 ss 服务。不过，由于搬瓦工是基于 OpenVZ，所以折腾了好一会才弄清楚安装配置。现在感觉速度还可以，有兴趣的童鞋可以试试。</p>
-</blockquote>
-
-<ul>
-<li>
-<a href="#toc_0">安装 TCP-BBR</a>
-</li>
-<li>
-<a href="#toc_1">Shadowsocks 安装</a>
-</li>
-<li>
-<a href="#toc_2">Shadowsocks 优化</a>
-</li>
-<li>
-<a href="#toc_3">FAQ</a>
-</li>
-<li>
-<a href="#toc_4">Reference</a>
-</li>
-</ul>
-
-
-<p>OpenVZ 虚拟化安装要求：</p>
-
-<ul>
-<li>LKL 要求 ldd 的版本在 2.14以上 ，ldd --verson 查看，64位系统，建议安装 CentOS7，Debian8 或 Ubuntu16；</li>
-<li>默认的端口转发只转发了 <strong>9000-9999</strong> 的端口，如需修改请参照下面教程；</li>
-</ul>
-
-<h2 id="toc_0">安装 TCP-BBR</h2>
-
-<p>TCP-BBR 一键安装包命令，</p>
-
-<pre><code>wget --no-check-certificate https://github.com/91yun/uml/raw/master/lkl/install.sh &amp;&amp; bash install.sh
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127086488178.jpg" alt=""/></p>
-
-<p><code>ping 10.0.0.2</code>，如果 10.0.0.2 能 ping 通说明成功。</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127088635892.jpg" alt=""/></p>
-
-<p>修改转发端口</p>
-
-<p>1.修改 <code>/root/lkl/run.sh</code>，查找 <strong>9000-9999</strong> ，改成你想要的端口；</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127094945879.jpg" alt=""/></p>
-
-<p>2.修改 <code>/root/lkl/haproxy.cfg</code>，查找 <strong>9000-9999</strong> ，改成你想要的端口；</p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127095584274.jpg" alt=""/></p>
-
-<ol>
-<li><code>reboot</code> 重启 VPS。 </li>
-</ol>
-
-<blockquote>
-<p>要卸载 TCP-BBR 的唯一办法就是重装内核或重装系统，所以没有在新机器中测试成功之前不建议在生成环境中使用！</p>
-</blockquote>
-
-<h2 id="toc_1">Shadowsocks 安装</h2>
-
-<p>使用 root 用户登录，运行以下命令：</p>
-
-<pre><code>wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh &amp;&amp; chmod +x shadowsocks.sh &amp;&amp; ./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
-</code></pre>
-
-<p>卸载方法，使用root用户登录，运行以下命令：</p>
-
-<pre><code>./shadowsocks.sh uninstall
-</code></pre>
-
-<p>配置文件路径：</p>
-
-<pre><code>/etc/shadowsocks.json
-</code></pre>
-
-<p>单用户配置文件：</p>
-
-<pre><code>{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;server_port&quot;:your_server_port,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;your_password&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;your_encryption_method&quot;,
-    &quot;fast_open&quot;: false
-}
-</code></pre>
-
-<p>多用户多端口配置文件：</p>
-
-<pre><code>{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;port_password&quot;:{
-         &quot;8989&quot;:&quot;password0&quot;,
-         &quot;9001&quot;:&quot;password1&quot;,
-         &quot;9002&quot;:&quot;password2&quot;,
-         &quot;9003&quot;:&quot;password3&quot;,
-         &quot;9004&quot;:&quot;password4&quot;
-    },
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;your_encryption_method&quot;,
-    &quot;fast_open&quot;: false
-}
-</code></pre>
-
-<p>使用命令</p>
-
-<pre><code>启动：/etc/init.d/shadowsocks start
-停止：/etc/init.d/shadowsocks stop
-重启：/etc/init.d/shadowsocks restart
-状态：/etc/init.d/shadowsocks status
-</code></pre>
-
-<h2 id="toc_2">Shadowsocks 优化</h2>
-
-<ul>
-<li><p><strong>修改服务器参数</strong></p>
-
-<ol>
-<li><p>首先将服务器内核升级到3.5或更高。</p>
-
-<pre><code>vi /etc/security/limits.conf
-</code></pre>
-
-<p>添加两行：</p>
-
-<pre><code>* soft nofile 51200
-* hard nofile 51200
-</code></pre>
-
-<p>设置 ulimit：</p>
-
-<pre><code>ulimit -n 51200
-</code></pre></li>
-<li><p>然后编辑 sysctl.conf</p>
-
-<pre><code>vi /etc/sysctl.conf
-</code></pre>
-
-<p>添加配置：</p>
-
-<pre><code>fs.file-max = 51200
-
-net.core.rmem_max = 67108864
-net.core.wmem_max = 67108864
-net.core.netdev_max_backlog = 250000
-net.core.somaxconn = 4096
-
-net.ipv4.tcp_syncookies = 1
-net.ipv4.tcp_tw_reuse = 1
-net.ipv4.tcp_tw_recycle = 0
-net.ipv4.tcp_fin_timeout = 30
-net.ipv4.tcp_keepalive_time = 1200
-net.ipv4.ip_local_port_range = 10000 65000
-net.ipv4.tcp_max_syn_backlog = 8192
-net.ipv4.tcp_max_tw_buckets = 5000
-net.ipv4.tcp_fastopen = 3
-net.ipv4.tcp_mem = 25600 51200 102400
-net.ipv4.tcp_rmem = 4096 87380 67108864
-net.ipv4.tcp_wmem = 4096 65536 67108864
-net.ipv4.tcp_mtu_probing = 1
-net.ipv4.tcp_congestion_control = hybla
-</code></pre>
-
-<p>加载配置：</p>
-
-<pre><code>sysctl -p
-</code></pre></li>
-</ol></li>
-<li><p><strong>开启 SS 的 <code>fast_open</code></strong></p>
-
-<pre><code># 查看系统内核版本
-cat /proc/version
-# 查看系统内核fast_open是否开启
-cat /proc/sys/net/ipv4/tcp_fastopen
-# 如果值是1，说明已开启(3.7+默认开启)，如果值时0，需要修改内核参数
-echo &quot;net.ipv4.tcp_fastopen = 1&quot; &gt;&gt; /etc/sysctl.conf
-# 使修改的内核配置生效
-sysctl -p
-</code></pre>
-
-<p>只要我们系统内核大于3.7，就可以通过修改 Shadowsocks 配置文件来开启这个选项，用来降低延迟:</p>
-
-<pre><code>{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;server_port&quot;:your_server_port,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;your_password&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;your_encryption_method&quot;,
-    &quot;fast_open&quot;: true
-}
-</code></pre></li>
-</ul>
-
-<blockquote>
-<p>如果你的 vps 是 KVM 架构方案，可以升级内核。</p>
-</blockquote>
-
-<p>contOS 7 下操作指南：</p>
-
-<pre><code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-
-rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127222850402.jpg" alt=""/></p>
-
-<p>仓库启用后，你可以使用下面的命令列出可用的内核相关包：</p>
-
-<pre><code>yum --disablerepo=&quot;*&quot; --enablerepo=&quot;elrepo-kernel&quot; list available
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127223508829.jpg" alt=""/></p>
-
-<p>接下来，安装最新的主线稳定内核：</p>
-
-<pre><code>yum --enablerepo=elrepo-kernel install kernel-ml
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127224147842.jpg" alt=""/><br/>
-<img src="http://p06ki0wzp.bkt.clouddn.com/15127224626814.jpg" alt=""/></p>
-
-<p>最后，重启机器并应用最新内核，接着运行下面的命令检查最新内核版本：</p>
-
-<pre><code>uname -sr
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127230931089.jpg" alt=""/></p>
-
-<h2 id="toc_3">FAQ</h2>
-
-<blockquote>
-<p>Error: Your VPS is based on OpenVZ, not be supported.</p>
-</blockquote>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127083590282.jpg" alt=""/></p>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127093801295.jpg" alt=""/></p>
-
-<p><em>结论：以上的方式不适合 openVZ，只适合 KVM、Xen 安装。</em></p>
-
-<blockquote>
-<p>sysctl: permission denied on key &#39;net.nf_conntrack_max&#39;</p>
-</blockquote>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127145522249.jpg" alt=""/></p>
-
-<p><em>解决：在网上七找八翻的终于找到了，据说是 openvz 模版的问题（谷歌翻译是这样说的），要进行修复操作， 执行下面四个命令：</em></p>
-
-<pre><code># 修复 modprobe 
-rm -f /sbin/modprobe 
-ln -s /bin/true /sbin/modprobe
-
-# 修复sysctl的：
-rm -f /sbin/sysctl 
-ln -s /bin/true /sbin/sysctl
-
-# 再次执行 
-sysctl -p
-</code></pre>
-
-<p><img src="http://p06ki0wzp.bkt.clouddn.com/15127148734886.jpg" alt=""/></p>
-
-<p>好了，终于没报错了。</p>
-
-<h2 id="toc_4">Reference</h2>
-
-<p><a href="https://blog.kuoruan.com/48.html">搬瓦工(Bandwagonhost)搭建Shadowsocks并优化速度</a></p>
-
-<p><a href="https://teddysun.com/342.html">Shadowsocks Python版一键安装脚本</a></p>
-
-<p><a href="http://www.jianshu.com/p/726bd9f37220">CentOS 7 升级内核</a></p>
-
-<p><a href="https://legolasng.github.io/2017/05/08/upgrade-centos-kernel/">升级内核 &amp; 开启BBR</a></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/8</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='fe.html'>FELike</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -822,6 +656,12 @@ sysctl -p
 	      
 		      
 			      <li class="post">
+			        <a href="15194902495465.html">IntelliJ IDEA License Server 搭建</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15158351946987.html">「星球大战」赏析</a>
 			      </li>
 		     
@@ -845,10 +685,6 @@ sysctl -p
 		     
 		  
 		      
-			      <li class="post">
-			        <a href="15127462200707.html">Mac 下 iTerm2 实现 ssh 自动登录</a>
-			      </li>
-		     
 		  
 		      
 		  
